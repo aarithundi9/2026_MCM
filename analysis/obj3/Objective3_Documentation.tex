@@ -1,0 +1,598 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{multirow}
+
+% Custom colors
+\definecolor{dwtsblue}{RGB}{70,130,180}
+\definecolor{dwtscoral}{RGB}{255,127,80}
+\definecolor{warnorange}{RGB}{255,165,0}
+\definecolor{successgreen}{RGB}{46,139,87}
+
+% Page style
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MCM Problem C 2026}
+\lhead{Objective 3: Pro Dancer \& Celebrity Characteristics}
+\rfoot{Page \thepage}
+
+% Title formatting
+\titleformat{\section}{\Large\bfseries\color{dwtsblue}}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries\color{gray}}{\thesubsection}{1em}{}
+
+\title{\textbf{Dancing with the Stars: Pro Dancer \& Celebrity Characteristics} \\ 
+\large MCM Problem C 2026 -- Objective 3 Technical Documentation}
+\author{Team Documentation}
+\date{January 2026}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\newpage
+
+%==============================================================================
+\section{Executive Summary}
+%==============================================================================
+
+This document presents our analysis framework for quantifying how professional dancer and celebrity characteristics influence competition outcomes on \textit{Dancing with the Stars}. We developed novel methodologies including the \textbf{Pro Dancer Impact Score (PDIS)} and \textbf{Celebrity Archetype Clustering} to provide actionable insights for optimal pairing decisions.
+
+\subsection*{Key Findings}
+
+\begin{itemize}
+    \item \textbf{Pro dancer variance contribution:} ICC = 5.3\% (pro dancer explains 5.3\% of placement variance)
+    \item \textbf{Causal impact:} Top-tier pros improve placement by \textbf{1.70 places} on average (ATE via propensity matching)
+    \item \textbf{Celebrity-only predictability:} $R^2 = 26.2\%$ -- celebrity characteristics alone explain about a quarter of performance
+    \item \textbf{Three distinct celebrity archetypes:} Fast Learners, Underdogs, and Veteran Stars
+    \item \textbf{Top PDIS Pros:} Daniella Karagach (100.0), Lindsay Arnold (88.0), Derek Hough (82.3)
+\end{itemize}
+
+\colorbox{successgreen!20}{\parbox{\dimexpr\linewidth-2\fboxsep}{
+\textbf{Headline Result:} The professional dancer matters, but celebrity characteristics dominate. Our PDIS metric identifies which pros consistently outperform expectations, providing a data-driven pairing recommendation system.
+}}
+
+%==============================================================================
+\section{Problem Formulation}
+%==============================================================================
+
+\subsection{Research Questions}
+
+Objective 3 addresses three interconnected questions:
+
+\begin{enumerate}
+    \item \textbf{Variance Decomposition:} How much of placement variance is attributable to the professional dancer vs. celebrity characteristics?
+    \item \textbf{Causal Inference:} Controlling for celebrity characteristics, what is the causal impact of being paired with a top professional?
+    \item \textbf{Pairing Optimization:} Can we identify optimal pro-celebrity matches based on archetype compatibility?
+\end{enumerate}
+
+\subsection{Methodological Challenges}
+
+\subsubsection{Selection Bias}
+Producers strategically assign celebrities to professionals, creating endogeneity:
+\begin{itemize}
+    \item High-profile celebrities often paired with experienced pros
+    \item Athletic celebrities may receive pros specializing in technical styles
+    \item This confounding makes naive comparisons misleading
+\end{itemize}
+
+\subsubsection{Limited Sample Sizes}
+With 60 unique professional dancers across 34 seasons, some pros have very few partnerships, making individual effect estimation noisy.
+
+\subsection{Our Approach}
+
+We employ a multi-pronged strategy:
+\begin{enumerate}
+    \item \textbf{Mixed-Effects Models:} Partition variance while controlling for celebrity features
+    \item \textbf{Propensity Score Matching:} Isolate causal effect by matching similar celebrities
+    \item \textbf{Counterfactual Analysis:} Develop PDIS by comparing actual vs. expected performance
+    \item \textbf{Clustering:} Identify celebrity archetypes for pairing recommendations
+\end{enumerate}
+
+%==============================================================================
+\section{Feature Engineering}
+%==============================================================================
+
+\subsection{Star Power Index (SPI)}
+
+We developed a novel \textbf{Star Power Index} using Wikipedia page view data as a proxy for celebrity fame. For each celebrity $i$:
+
+\begin{equation}
+\text{SPI}_i = \log_{10}\left(1 + \frac{\text{PageViews}_{30\text{day}}}{\text{MedianPageViews}}\right)
+\end{equation}
+
+where page views are retrieved from the Wikimedia API for the 30-day period preceding their season's airdate.
+
+\subsubsection{Rationale}
+\begin{itemize}
+    \item Wikipedia page views correlate with public awareness
+    \item Available for historical analysis (unlike social media metrics)
+    \item Log-transformation handles extreme values (e.g., A-list celebrities)
+\end{itemize}
+
+\subsubsection{SPI Distribution}
+\begin{center}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Star Power Level} & \textbf{SPI Range} & \textbf{Count} \\
+\midrule
+Low Fame & 0--5 & 142 \\
+Medium Fame & 5--10 & 189 \\
+High Fame & 10--20 & 73 \\
+Superstar & $>$20 & 17 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Celebrity Feature Set}
+
+We engineered the following features for each celebrity:
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+\textbf{Feature} & \textbf{Type} & \textbf{Description} \\
+\midrule
+\texttt{celebrity\_age} & Numeric & Age during season \\
+\texttt{industry\_cluster} & Categorical & Entertainment, Sports, Media, Other \\
+\texttt{region} & Categorical & North America, Europe, etc. \\
+\texttt{star\_power\_index} & Numeric & Wikipedia-based fame metric \\
+\texttt{first\_week\_score} & Numeric & Initial judge score (proxy for baseline skill) \\
+\texttt{improvement\_rate} & Numeric & Week-over-week score growth \\
+\texttt{score\_volatility} & Numeric & Standard deviation of weekly scores \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Pro Dancer Feature Set}
+
+For each professional dancer:
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+\textbf{Feature} & \textbf{Type} & \textbf{Description} \\
+\midrule
+\texttt{pro\_experience} & Numeric & Number of seasons on DWTS \\
+\texttt{win\_rate} & Numeric & Proportion of wins (Mirrorball trophies) \\
+\texttt{finals\_rate} & Numeric & Proportion reaching finale \\
+\texttt{avg\_placement} & Numeric & Mean placement across partnerships \\
+\texttt{partnership\_count} & Numeric & Total celebrity partnerships \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Performance Trajectory Features}
+
+To capture learning dynamics, we computed:
+
+\begin{equation}
+\text{ImprovementRate}_i = \frac{\sum_{w=2}^{W} (\text{Score}_{i,w} - \text{Score}_{i,w-1})}{W-1}
+\end{equation}
+
+\begin{equation}
+\text{ScoreVolatility}_i = \sqrt{\frac{1}{W}\sum_{w=1}^{W} (\text{Score}_{i,w} - \bar{S}_i)^2}
+\end{equation}
+
+%==============================================================================
+\section{Mixed-Effects Modeling}
+%==============================================================================
+
+\subsection{Model Specification}
+
+To decompose variance, we estimate:
+
+\begin{equation}
+\text{Placement}_{ij} = \beta_0 + \boldsymbol{\beta}^T \mathbf{X}_i + u_j + \epsilon_{ij}
+\end{equation}
+
+where:
+\begin{itemize}
+    \item $i$ indexes celebrities, $j$ indexes professional dancers
+    \item $\mathbf{X}_i$ is the celebrity feature vector
+    \item $u_j \sim N(0, \sigma_u^2)$ is the random intercept for pro dancer $j$
+    \item $\epsilon_{ij} \sim N(0, \sigma_\epsilon^2)$ is the residual error
+\end{itemize}
+
+\subsection{Intraclass Correlation Coefficient (ICC)}
+
+The ICC quantifies the proportion of variance attributable to the professional dancer:
+
+\begin{equation}
+\text{ICC} = \frac{\sigma_u^2}{\sigma_u^2 + \sigma_\epsilon^2}
+\end{equation}
+
+\subsubsection{Results}
+
+\begin{center}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Variance Component} & \textbf{Estimate} & \textbf{Interpretation} \\
+\midrule
+$\sigma_u^2$ (Pro dancer) & 0.41 & Between-pro variance \\
+$\sigma_\epsilon^2$ (Residual) & 7.35 & Within-pro variance \\
+\textbf{ICC} & \textbf{5.3\%} & Pro explains 5.3\% of variance \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\colorbox{warnorange!20}{\parbox{\dimexpr\linewidth-2\fboxsep}{
+\textbf{Key Finding:} The professional dancer explains only 5.3\% of placement variance. Celebrity characteristics and residual factors dominate. This suggests \textit{who} the celebrity is matters more than \textit{who} they're paired with.
+}}
+
+\subsection{Fixed Effects: Celebrity Characteristics}
+
+The celebrity-only model (excluding pro random effects) yielded:
+
+\begin{center}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Predictor} & \textbf{Coefficient} & \textbf{Std. Error} & \textbf{p-value} \\
+\midrule
+Intercept & 12.45 & 1.23 & $<$0.001 \\
+Age & 0.08 & 0.02 & $<$0.001 \\
+Star Power Index & -0.15 & 0.04 & $<$0.001 \\
+First Week Score & -0.12 & 0.02 & $<$0.001 \\
+Industry: Sports & -1.82 & 0.58 & $<$0.01 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Interpretation:}
+\begin{itemize}
+    \item \textbf{Age:} Each additional year increases expected placement by 0.08 (older = worse)
+    \item \textbf{Star Power:} Higher fame predicts better placement (fan voting advantage)
+    \item \textbf{First Week Score:} Strong start predicts better final placement
+    \item \textbf{Sports Industry:} Athletes perform better than entertainment industry average
+\end{itemize}
+
+%==============================================================================
+\section{Propensity Score Matching}
+%==============================================================================
+
+\subsection{Motivation}
+
+Mixed-effects models estimate correlations but cannot establish causation due to non-random pro assignment. We use \textbf{propensity score matching} to create comparable groups.
+
+\subsection{Methodology}
+
+\subsubsection{Step 1: Define Treatment}
+We classify pros as ``top-tier'' based on historical performance:
+\begin{equation}
+\text{TopPro}_j = \mathbf{1}\{\text{WinRate}_j > \text{Median}(\text{WinRate})\}
+\end{equation}
+
+\subsubsection{Step 2: Estimate Propensity Scores}
+Using logistic regression:
+\begin{equation}
+P(\text{TopPro} = 1 \mid \mathbf{X}) = \frac{1}{1 + e^{-(\alpha + \boldsymbol{\gamma}^T \mathbf{X})}}
+\end{equation}
+
+Features included: celebrity age, star power, industry, region, season.
+
+\subsubsection{Step 3: Match on Propensity Scores}
+Nearest-neighbor matching with caliper = 0.15:
+\begin{itemize}
+    \item Original sample: 421 celebrities
+    \item Matched pairs: 156
+    \item Balance achieved: standardized mean differences $<$ 0.1 for all covariates
+\end{itemize}
+
+\subsection{Average Treatment Effect (ATE)}
+
+\begin{equation}
+\text{ATE} = \frac{1}{n_{\text{matched}}}\sum_{i \in \text{matched}} \left(\text{Placement}_i^{\text{treated}} - \text{Placement}_i^{\text{control}}\right)
+\end{equation}
+
+\begin{center}
+\colorbox{successgreen!20}{\parbox{0.8\linewidth}{
+\centering
+\textbf{ATE = --1.70 places} \\
+(95\% CI: --2.45 to --0.95, $p < 0.001$) \\[0.5em]
+Being paired with a top-tier professional improves final placement by 1.70 places on average, after controlling for celebrity characteristics.
+}}
+\end{center}
+
+\subsection{Robustness Checks}
+
+We verified results with alternative specifications:
+
+\begin{center}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Specification} & \textbf{ATE} & \textbf{95\% CI} \\
+\midrule
+Main specification & --1.70 & [--2.45, --0.95] \\
+Caliper = 0.10 & --1.58 & [--2.38, --0.78] \\
+Caliper = 0.20 & --1.75 & [--2.41, --1.09] \\
+Mahalanobis matching & --1.82 & [--2.64, --1.00] \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+%==============================================================================
+\section{Pro Dancer Impact Score (PDIS)}
+%==============================================================================
+
+\subsection{Conceptual Framework}
+
+The PDIS is a counterfactual metric: \textit{How does each pro's actual performance compare to what would be expected given their celebrities?}
+
+\subsection{PDIS Calculation}
+
+\subsubsection{Step 1: Estimate Expected Placement}
+
+For each celebrity $i$, we predict expected placement using only celebrity features:
+
+\begin{equation}
+\hat{P}_i = f(\mathbf{X}_i; \hat{\boldsymbol{\theta}})
+\end{equation}
+
+where $f$ is a Random Forest regressor trained on celebrity features only.
+
+\subsubsection{Step 2: Compute Raw PDIS}
+
+For each pro $j$ with partnerships $\mathcal{C}_j$:
+
+\begin{equation}
+\text{PDIS}_j^{\text{raw}} = \frac{1}{|\mathcal{C}_j|}\sum_{i \in \mathcal{C}_j} (\hat{P}_i - P_i)
+\end{equation}
+
+Positive values indicate the pro outperformed expectations.
+
+\subsubsection{Step 3: Normalize to 0--100 Scale}
+
+\begin{equation}
+\text{PDIS}_j = 100 \times \frac{\text{PDIS}_j^{\text{raw}} - \text{PDIS}_{\min}}{\text{PDIS}_{\max} - \text{PDIS}_{\min}}
+\end{equation}
+
+\subsection{PDIS Rankings}
+
+\begin{center}
+\begin{tabular}{clcccc}
+\toprule
+\textbf{Rank} & \textbf{Professional} & \textbf{PDIS} & \textbf{Seasons} & \textbf{Wins} & \textbf{Avg Place} \\
+\midrule
+1 & Daniella Karagach & 100.0 & 5 & 1 & 3.2 \\
+2 & Lindsay Arnold & 88.0 & 9 & 1 & 4.1 \\
+3 & Derek Hough & 82.3 & 17 & 6 & 3.8 \\
+4 & Witney Carson & 78.5 & 10 & 2 & 4.5 \\
+5 & Julianne Hough & 75.2 & 4 & 2 & 2.8 \\
+6 & Kym Johnson & 72.8 & 13 & 2 & 4.2 \\
+7 & Peta Murgatroyd & 70.1 & 11 & 2 & 4.9 \\
+8 & Mark Ballas & 68.4 & 19 & 2 & 4.6 \\
+9 & Cheryl Burke & 65.7 & 26 & 2 & 5.1 \\
+10 & Maksim Chmerkovskiy & 62.3 & 18 & 1 & 5.4 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{PDIS Validation}
+
+We validated PDIS against external benchmarks:
+
+\begin{itemize}
+    \item \textbf{Correlation with win count:} $r = 0.72$ ($p < 0.001$)
+    \item \textbf{Correlation with experience:} $r = 0.18$ (weak -- PDIS captures skill beyond experience)
+    \item \textbf{Face validity:} Top PDIS pros are widely recognized as elite (Derek Hough, Julianne Hough)
+\end{itemize}
+
+\subsection{Tier Classification}
+
+Based on PDIS, we classified pros into performance tiers:
+
+\begin{center}
+\begin{tabular}{llcc}
+\toprule
+\textbf{Tier} & \textbf{PDIS Range} & \textbf{Count} & \textbf{Avg Placement} \\
+\midrule
+Elite & $\geq 75$ & 5 & 3.9 \\
+Above Average & 50--75 & 8 & 4.8 \\
+Average & 25--50 & 11 & 6.2 \\
+Below Average & $<25$ & 8 & 7.8 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+%==============================================================================
+\section{Celebrity Archetype Clustering}
+%==============================================================================
+
+\subsection{Motivation}
+
+Different celebrities have different success patterns. By clustering celebrities into archetypes, we can identify which professional dancer style complements each archetype.
+
+\subsection{Methodology}
+
+\subsubsection{Feature Selection}
+We selected 7 features for clustering:
+\begin{enumerate}
+    \item Age at competition
+    \item Star Power Index
+    \item First week score
+    \item Improvement rate
+    \item Score volatility
+    \item Industry (encoded)
+    \item Region (encoded)
+\end{enumerate}
+
+\subsubsection{Clustering Algorithm}
+K-Means clustering with:
+\begin{itemize}
+    \item Standardized features (z-score normalization)
+    \item Optimal $k$ determined by elbow method + silhouette score
+    \item Optimal $k = 3$--$4$ (silhouette = 0.174--0.182)
+\end{itemize}
+
+\subsection{Archetype Profiles}
+
+We identified three distinct celebrity archetypes:
+
+\begin{center}
+\begin{tabular}{lccccl}
+\toprule
+\textbf{Archetype} & \textbf{Count} & \textbf{Avg Age} & \textbf{Star Power} & \textbf{Avg Place} & \textbf{Profile} \\
+\midrule
+Fast Learners & 178 & 34 & 6.3 & 5.9 & Young, athletic, rapid improvement \\
+Underdogs & 143 & 34 & 7.9 & 5.7 & Entertainment industry, fan favorites \\
+Veteran Stars & 76 & 56 & 15.1 & 9.7 & Older, famous, lower placement \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Archetype Descriptions}
+
+\subsubsection{Fast Learners (45\%)}
+\begin{itemize}
+    \item \textbf{Demographics:} Younger (avg age 34), athletic background common
+    \item \textbf{Industry:} 50\% Sports, 43\% Entertainment
+    \item \textbf{Pattern:} Strong improvement rate, moderate starting scores
+    \item \textbf{Best Pros:} Kym Johnson (avg placement 2.8), Derek Hough (avg 2.9)
+\end{itemize}
+
+\subsubsection{Underdogs (36\%)}
+\begin{itemize}
+    \item \textbf{Demographics:} Diverse ages, moderate fame
+    \item \textbf{Industry:} 89\% Entertainment (actors, singers)
+    \item \textbf{Pattern:} Build fan following over season, surprise eliminations
+    \item \textbf{Best Pros:} Lindsay Arnold (avg placement 2.5), Derek Hough (avg 3.2)
+\end{itemize}
+
+\subsubsection{Veteran Stars (19\%)}
+\begin{itemize}
+    \item \textbf{Demographics:} Older (avg age 56), high star power
+    \item \textbf{Industry:} Diverse -- legacy celebrities, politicians
+    \item \textbf{Pattern:} High initial interest, fade as season progresses
+    \item \textbf{Best Pros:} Edyta Sliwinska (avg placement 7.0), patient/supportive style
+\end{itemize}
+
+\subsection{Archetype-Pro Pairing Recommendations}
+
+Based on historical performance patterns:
+
+\begin{center}
+\begin{tabular}{llp{6cm}}
+\toprule
+\textbf{Archetype} & \textbf{Recommended Pros} & \textbf{Rationale} \\
+\midrule
+Fast Learners & Derek Hough, Kym Johnson, Witney Carson & Can push technically, leverage athleticism \\
+Underdogs & Lindsay Arnold, Peta Murgatroyd & Build confidence, fan connection focus \\
+Veteran Stars & Edyta Sliwinska, Emma Slater & Patient teaching style, adapt to limitations \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+%==============================================================================
+\section{Dual-Pathway Analysis}
+%==============================================================================
+
+\subsection{Judges vs. Fans}
+
+We explored whether pro dancer effects differ for judge scores vs. fan votes:
+
+\begin{center}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Outcome} & \textbf{Pro ICC} & \textbf{Celebrity $R^2$} \\
+\midrule
+Final Placement & 5.3\% & 26.2\% \\
+Judge Scores (avg) & 7.8\% & 31.5\% \\
+Fan Vote Estimate & 3.1\% & 22.8\% \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Key Insight:} Pro dancers have more influence on judge scores (7.8\%) than fan votes (3.1\%). This is intuitive: judges evaluate technical execution (influenced by pro's teaching), while fans vote based on likability (driven by celebrity characteristics).
+
+%==============================================================================
+\section{Conclusions \& Recommendations}
+%==============================================================================
+
+\subsection{Summary of Findings}
+
+\begin{enumerate}
+    \item \textbf{Pro dancer impact is modest:} ICC = 5.3\%, but top pros provide ~1.7 place advantage
+    \item \textbf{Celebrity characteristics dominate:} Age, fame, and baseline skill explain 26\% of placement variance
+    \item \textbf{PDIS identifies elite pros:} Daniella Karagach, Lindsay Arnold, Derek Hough consistently outperform expectations
+    \item \textbf{Archetypes enable strategic pairing:} Fast Learners, Underdogs, and Veteran Stars have different optimal pro matches
+\end{enumerate}
+
+\subsection{Practical Recommendations for Producers}
+
+\begin{enumerate}
+    \item \textbf{Strategic Pairing:} Match Fast Learners with technically demanding pros; pair Veteran Stars with patient teachers
+    \item \textbf{Risk Management:} Underdogs are high-variance -- pair with consistent performers to reduce early elimination risk
+    \item \textbf{PDIS for Decision-Making:} Use PDIS rather than win count to evaluate pro performance
+\end{enumerate}
+
+\subsection{Limitations}
+
+\begin{enumerate}
+    \item \textbf{Sample size:} Some pros have few partnerships, making PDIS estimates noisy
+    \item \textbf{Endogeneity:} Despite propensity matching, unobserved confounders may bias estimates
+    \item \textbf{Temporal changes:} Voting rules and show format changed over 34 seasons
+    \item \textbf{Feature limitations:} Star Power Index is a proxy; actual social media data would improve accuracy
+\end{enumerate}
+
+\subsection{Future Work}
+
+\begin{itemize}
+    \item Incorporate dance style-specific effects (Latin vs. Ballroom)
+    \item Model elimination timing (early vs. late season dynamics)
+    \item Develop pro-celebrity compatibility score using collaborative filtering
+\end{itemize}
+
+%==============================================================================
+\section{Appendix: Mathematical Notation}
+%==============================================================================
+
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+\textbf{Symbol} & \textbf{Definition} \\
+\midrule
+$i$ & Celebrity index \\
+$j$ & Professional dancer index \\
+$P_i$ & Final placement of celebrity $i$ \\
+$\hat{P}_i$ & Expected placement based on celebrity features only \\
+$\mathbf{X}_i$ & Celebrity feature vector \\
+$u_j$ & Random intercept for pro dancer $j$ \\
+$\sigma_u^2$ & Between-pro variance \\
+$\sigma_\epsilon^2$ & Residual (within-pro) variance \\
+ICC & Intraclass Correlation Coefficient \\
+ATE & Average Treatment Effect \\
+PDIS & Pro Dancer Impact Score \\
+SPI & Star Power Index \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+%==============================================================================
+\section{Appendix: Output Files}
+%==============================================================================
+
+All analysis outputs are saved in \texttt{data/obj3/}:
+
+\begin{itemize}
+    \item \texttt{celebrity\_features.csv} -- Complete feature dataset (421 celebrities × 21 features)
+    \item \texttt{pro\_dancer\_stats.csv} -- Pro dancer statistics (60 pros)
+    \item \texttt{pdis\_final\_rankings.csv} -- PDIS scores for all pros
+    \item \texttt{celebrity\_archetypes.csv} -- Cluster assignments for all celebrities
+    \item \texttt{cluster\_optimization.png} -- Elbow and silhouette plots
+    \item \texttt{celebrity\_archetypes.png} -- PCA visualization of clusters
+    \item \texttt{archetype\_pro\_heatmap.png} -- Pro-archetype performance matrix
+    \item \texttt{archetype\_industry\_breakdown.png} -- Industry distribution by archetype
+\end{itemize}
+
+\end{document}

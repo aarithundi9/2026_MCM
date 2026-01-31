@@ -1,0 +1,250 @@
+week,n_contestants,bottom2_names,bottom2_judge_scores,bottom2_score_diff,auto_eliminated,b2_eliminated,choice_differs,actual_eliminated,fan_favorite_saved,season,base_method
+2,6,"['Trista Sutter', 'Rachel Hunter']","[np.float64(19.0), np.float64(24.0)]",5.0,Trista Sutter,Trista Sutter,False,Trista Sutter,False,1,rank
+3,5,"['Evander Holyfield', 'Joey McIntyre']","[np.float64(13.0), np.float64(22.0)]",9.0,Evander Holyfield,Evander Holyfield,False,Evander Holyfield,False,1,rank
+4,4,"['Rachel Hunter', 'Joey McIntyre']","[np.float64(25.0), np.float64(20.0)]",5.0,Rachel Hunter,Joey McIntyre,True,Rachel Hunter,True,1,rank
+2,9,"[""Tatum O'Neal"", 'Jerry Rice']","[np.float64(17.0), np.float64(23.0)]",6.0,Tatum O'Neal,Tatum O'Neal,False,Tatum O'Neal,False,2,rank
+3,8,"['Giselle Fernandez', 'Jerry Rice']","[np.float64(22.0), np.float64(19.0)]",3.0,Giselle Fernandez,Jerry Rice,True,Giselle Fernandez,True,2,rank
+4,7,"['Master P', 'Tia Carrere']","[np.float64(8.0), np.float64(25.0)]",17.0,Master P,Master P,False,Master P,False,2,rank
+5,6,"['Tia Carrere', 'Drew Lachey']","[np.float64(22.0), np.float64(27.0)]",5.0,Tia Carrere,Tia Carrere,False,Tia Carrere,False,2,rank
+6,5,"['George Hamilton', 'Drew Lachey']","[np.float64(23.0), np.float64(30.0)]",7.0,George Hamilton,George Hamilton,False,George Hamilton,False,2,rank
+7,4,"['Lisa Rinna', 'Jerry Rice']","[np.float64(26.5), np.float64(20.5)]",6.0,Lisa Rinna,Jerry Rice,True,Lisa Rinna,True,2,rank
+2,10,"['Shanna Moakler', 'Jerry Springer']","[np.float64(22.0), np.float64(19.0)]",3.0,Shanna Moakler,Jerry Springer,True,Shanna Moakler,True,3,percent
+3,9,"['Harry Hamlin', 'Emmitt Smith']","[np.float64(22.0), np.float64(19.0)]",3.0,Harry Hamlin,Emmitt Smith,True,Harry Hamlin,True,3,percent
+4,8,"['Vivica A. Fox', 'Sara Evans']","[np.float64(24.0), np.float64(20.0)]",4.0,Vivica A. Fox,Sara Evans,True,Vivica A. Fox,True,3,percent
+5,7,"['Willa Ford', 'Sara Evans']","[np.float64(27.0), np.float64(24.0)]",3.0,Willa Ford,Sara Evans,True,Willa Ford,True,3,percent
+7,5,"['Jerry Springer', 'Monique Coleman']","[np.float64(23.0), np.float64(27.0)]",4.0,Jerry Springer,Jerry Springer,False,Jerry Springer,False,3,percent
+8,4,"['Monique Coleman', 'Emmitt Smith']","[np.float64(26.5), np.float64(27.0)]",0.5,Monique Coleman,Monique Coleman,False,Monique Coleman,False,3,percent
+2,11,"['Paulina Porizkova', 'Clyde Drexler']","[np.float64(21.0), np.float64(18.0)]",3.0,Paulina Porizkova,Clyde Drexler,True,Paulina Porizkova,True,4,percent
+3,10,"['Shandi Finnessey', 'Clyde Drexler']","[np.float64(21.0), np.float64(16.0)]",5.0,Shandi Finnessey,Clyde Drexler,True,Shandi Finnessey,True,4,percent
+4,9,"['Leeza Gibbons', 'Clyde Drexler']","[np.float64(16.0), np.float64(15.0)]",1.0,Leeza Gibbons,Clyde Drexler,True,Leeza Gibbons,True,4,percent
+5,8,"['Clyde Drexler', 'Billy Ray Cyrus']","[np.float64(13.0), np.float64(17.0)]",4.0,Clyde Drexler,Clyde Drexler,False,Clyde Drexler,False,4,percent
+6,7,"['Heather Mills', 'John Ratzenberger']","[np.float64(23.0), np.float64(19.0)]",4.0,Heather Mills,John Ratzenberger,True,Heather Mills,True,4,percent
+7,6,"['John Ratzenberger', 'Billy Ray Cyrus']","[np.float64(22.5), np.float64(19.0)]",3.5,John Ratzenberger,Billy Ray Cyrus,True,John Ratzenberger,True,4,percent
+8,5,"['Billy Ray Cyrus', 'Ian Ziering']","[np.float64(19.0), np.float64(23.5)]",4.5,Billy Ray Cyrus,Billy Ray Cyrus,False,Billy Ray Cyrus,False,4,percent
+9,4,"['Ian Ziering', 'Apolo Anton Ohno']","[np.float64(29.0), np.float64(29.5)]",0.5,Ian Ziering,Ian Ziering,False,Ian Ziering,False,4,percent
+2,11,"['Albert Reed', 'Wayne Newton']","[np.float64(21.0), np.float64(15.0)]",6.0,Albert Reed,Wayne Newton,True,Albert Reed,True,5,percent
+3,10,"['Wayne Newton', 'Mark Cuban']","[np.float64(18.0), np.float64(20.0)]",2.0,Wayne Newton,Wayne Newton,False,Wayne Newton,False,5,percent
+4,9,"['Floyd Mayweather Jr. ', 'Mark Cuban']","[np.float64(23.0), np.float64(22.0)]",1.0,Floyd Mayweather Jr. ,Mark Cuban,True,Floyd Mayweather Jr. ,True,5,percent
+5,8,"['Mark Cuban', 'Marie Osmond']","[np.float64(21.0), np.float64(21.0)]",0.0,Mark Cuban,Mark Cuban,False,Mark Cuban,False,5,percent
+6,7,"['Sabrina Bryan', 'Jane Seymour']","[np.float64(25.0), np.float64(22.0)]",3.0,Sabrina Bryan,Jane Seymour,True,Sabrina Bryan,True,5,percent
+7,6,"['Jane Seymour', 'Cameron Mathison']","[np.float64(25.0), np.float64(25.5)]",0.5,Jane Seymour,Jane Seymour,False,Jane Seymour,False,5,percent
+8,5,"['Cameron Mathison', 'Marie Osmond']","[np.float64(25.5), np.float64(24.5)]",1.0,Cameron Mathison,Marie Osmond,True,Cameron Mathison,True,5,percent
+9,4,"['Jennie Garth', 'Marie Osmond']","[np.float64(29.0), np.float64(28.0)]",1.0,Jennie Garth,Marie Osmond,True,Jennie Garth,True,5,percent
+2,12,"['Monica Seles', 'Steve Guttenberg']","[np.float64(15.0), np.float64(16.0)]",1.0,Monica Seles,Monica Seles,False,Monica Seles,False,6,percent
+3,10,"['Steve Guttenberg', 'Marissa Jaret Winokur']","[np.float64(21.0), np.float64(19.0)]",2.0,Steve Guttenberg,Marissa Jaret Winokur,True,Steve Guttenberg,True,6,percent
+4,9,"['Adam Carolla', 'Priscilla Presley']","[np.float64(19.0), np.float64(22.0)]",3.0,Adam Carolla,Adam Carolla,False,Adam Carolla,False,6,percent
+5,8,"['Priscilla Presley', 'Marlee Matlin']","[np.float64(21.0), np.float64(22.0)]",1.0,Priscilla Presley,Priscilla Presley,False,Priscilla Presley,False,6,percent
+6,7,"['Marlee Matlin', 'Shannon Elizabeth']","[np.float64(21.0), np.float64(24.0)]",3.0,Marlee Matlin,Marlee Matlin,False,Marlee Matlin,False,6,percent
+7,6,"['Shannon Elizabeth', 'Cristian de la Fuente']","[np.float64(25.5), np.float64(23.0)]",2.5,Shannon Elizabeth,Cristian de la Fuente,True,Shannon Elizabeth,True,6,percent
+8,5,"['Mario', 'Marissa Jaret Winokur']","[np.float64(26.5), np.float64(25.0)]",1.5,Mario,Marissa Jaret Winokur,True,Mario,True,6,percent
+9,4,"['Marissa Jaret Winokur', 'Jason Taylor']","[np.float64(26.0), np.float64(27.5)]",1.5,Marissa Jaret Winokur,Marissa Jaret Winokur,False,Marissa Jaret Winokur,False,6,percent
+2,11,"['Kim Kardashian', 'Cloris Leachman']","[np.float64(17.0), np.float64(15.0)]",2.0,Kim Kardashian,Cloris Leachman,True,Kim Kardashian,True,7,percent
+4,9,"['Rocco DiSpirito', 'Maurice Greene']","[np.float64(18.0), np.float64(20.0)]",2.0,Rocco DiSpirito,Rocco DiSpirito,False,Rocco DiSpirito,False,7,percent
+5,8,"['Toni Braxton', 'Cloris Leachman']","[np.float64(22.0), np.float64(21.0)]",1.0,Toni Braxton,Cloris Leachman,True,Toni Braxton,True,7,percent
+6,7,"['Cloris Leachman', 'Maurice Greene']","[np.float64(15.0), np.float64(21.0)]",6.0,Cloris Leachman,Cloris Leachman,False,Cloris Leachman,False,7,percent
+7,6,"['Susan Lucci', 'Warren Sapp']","[np.float64(24.0), np.float64(21.0)]",3.0,Susan Lucci,Warren Sapp,True,Susan Lucci,True,7,percent
+8,5,"['Maurice Greene', 'Cody Linley']","[np.float64(24.0), np.float64(24.0)]",0.0,Maurice Greene,Maurice Greene,False,Maurice Greene,False,7,percent
+9,4,"['Cody Linley', 'Brooke Burke']","[np.float64(23.0), np.float64(24.5)]",1.5,Cody Linley,Cody Linley,False,Cody Linley,False,7,percent
+2,13,"['Belinda Carlisle', 'Steve-O']","[np.float64(18.0), np.float64(14.0)]",4.0,Belinda Carlisle,Steve-O,True,Belinda Carlisle,True,8,percent
+3,12,"['Denise Richards', 'Steve Wozniak']","[np.float64(16.0), np.float64(10.0)]",6.0,Denise Richards,Steve Wozniak,True,Denise Richards,True,8,percent
+4,11,"['Steve Wozniak', 'Steve-O']","[np.float64(12.0), np.float64(15.0)]",3.0,Steve Wozniak,Steve Wozniak,False,Steve Wozniak,False,8,percent
+5,9,"['David Alan Grier', 'Steve-O']","[np.float64(22.0), np.float64(18.0)]",4.0,David Alan Grier,Steve-O,True,David Alan Grier,True,8,percent
+6,8,"['Steve-O', 'Ty Murray']","[np.float64(16.0), np.float64(18.0)]",2.0,Steve-O,Steve-O,False,Steve-O,False,8,percent
+7,7,"['Lawrence Taylor', 'Ty Murray']","[np.float64(21.0), np.float64(24.0)]",3.0,Lawrence Taylor,Lawrence Taylor,False,Lawrence Taylor,False,8,percent
+8,6,"['Chuck Wicks', 'Melissa Rycroft']","[np.float64(25.5), np.float64(23.0)]",2.5,Chuck Wicks,Melissa Rycroft,True,Chuck Wicks,True,8,percent
+9,5,"[""Lil' Kim"", 'Ty Murray']","[np.float64(26.0), np.float64(23.0)]",3.0,Lil' Kim,Ty Murray,True,Lil' Kim,True,8,percent
+10,4,"['Ty Murray', 'Melissa Rycroft']","[np.float64(24.0), np.float64(27.5)]",3.5,Ty Murray,Ty Murray,False,Ty Murray,False,8,percent
+2,14,"['Kathy Ireland', 'Tom DeLay']","[np.float64(18.0), np.float64(18.0)]",0.0,Kathy Ireland,Kathy Ireland,False,Kathy Ireland,False,9,percent
+3,13,"['Debi Mazar', 'Michael Irvin']","[np.float64(17.0), np.float64(14.0)]",3.0,Debi Mazar,Michael Irvin,True,Debi Mazar,True,9,percent
+4,11,"['Chuck Liddell', 'Louie Vito']","[np.float64(17.0), np.float64(16.0)]",1.0,Chuck Liddell,Louie Vito,True,Chuck Liddell,True,9,percent
+5,10,"['Natalie Coughlin', 'Michael Irvin']","[np.float64(22.0), np.float64(21.0)]",1.0,Natalie Coughlin,Michael Irvin,True,Natalie Coughlin,True,9,percent
+6,9,"['Melissa Joan Hart', 'Michael Irvin']","[np.float64(23.9999), np.float64(21.9998)]",2.0000999999999998,Melissa Joan Hart,Michael Irvin,True,Melissa Joan Hart,True,9,percent
+7,7,"['Mark Dacascos', 'Michael Irvin']","[np.float64(21.5), np.float64(23.5)]",2.0,Mark Dacascos,Mark Dacascos,False,Mark Dacascos,False,9,percent
+8,5,"['Aaron Carter', 'Donny Osmond']","[np.float64(25.0), np.float64(25.0)]",0.0,Aaron Carter,Aaron Carter,False,Aaron Carter,False,9,percent
+9,4,"['Joanna Krupa', 'Donny Osmond']","[np.float64(27.0), np.float64(24.666600000000003)]",2.3333999999999975,Joanna Krupa,Donny Osmond,True,Joanna Krupa,True,9,percent
+2,11,"['Shannen Doherty', 'Buzz Aldrin']","[np.float64(20.0), np.float64(12.0)]",8.0,Shannen Doherty,Buzz Aldrin,True,Shannen Doherty,True,10,percent
+3,10,"['Buzz Aldrin', 'Kate Gosselin']","[np.float64(13.0), np.float64(15.0)]",2.0,Buzz Aldrin,Buzz Aldrin,False,Buzz Aldrin,False,10,percent
+4,9,"['Aiden Turner', 'Kate Gosselin']","[np.float64(16.5), np.float64(16.0)]",0.5,Aiden Turner,Kate Gosselin,True,Aiden Turner,True,10,percent
+5,8,"['Kate Gosselin', 'Niecy Nash']","[np.float64(15.0), np.float64(18.0)]",3.0,Kate Gosselin,Kate Gosselin,False,Kate Gosselin,False,10,percent
+6,7,"['Jake Pavelka', 'Niecy Nash']","[np.float64(24.999899999999997), np.float64(25.9998)]",0.9999000000000038,Jake Pavelka,Jake Pavelka,False,Jake Pavelka,False,10,percent
+7,6,"['Pamela Anderson', 'Niecy Nash']","[np.float64(25.5), np.float64(24.5)]",1.0,Pamela Anderson,Niecy Nash,True,Pamela Anderson,True,10,percent
+8,5,"['Niecy Nash', 'Chad Ochocinco']","[np.float64(21.5), np.float64(22.5)]",1.0,Niecy Nash,Niecy Nash,False,Niecy Nash,False,10,percent
+9,4,"['Chad Ochocinco', 'Erin Andrews']","[np.float64(26.0), np.float64(28.0)]",2.0,Chad Ochocinco,Chad Ochocinco,False,Chad Ochocinco,False,10,percent
+2,11,"['Michael Bolton', 'Margaret Cho']","[np.float64(12.0), np.float64(18.0)]",6.0,Michael Bolton,Michael Bolton,False,Michael Bolton,False,11,percent
+3,10,"['Margaret Cho', 'Bristol Palin']","[np.float64(18.0), np.float64(19.0)]",1.0,Margaret Cho,Margaret Cho,False,Margaret Cho,False,11,percent
+4,9,"['The Situation', 'Bristol Palin']","[np.float64(14.0), np.float64(16.0)]",2.0,The Situation,The Situation,False,The Situation,False,11,percent
+5,8,"['Florence Henderson', 'Bristol Palin']","[np.float64(21.0), np.float64(18.0)]",3.0,Florence Henderson,Bristol Palin,True,Florence Henderson,True,11,percent
+6,7,"['Audrina Patridge', 'Kurt Warner']","[np.float64(31.9998), np.float64(21.9999)]",9.9999,Audrina Patridge,Kurt Warner,True,Audrina Patridge,True,11,percent
+7,6,"['Rick Fox', 'Bristol Palin']","[np.float64(34.5), np.float64(32.5)]",2.0,Rick Fox,Bristol Palin,True,Rick Fox,True,11,percent
+8,5,"['Kurt Warner', 'Bristol Palin']","[np.float64(24.0), np.float64(23.5)]",0.5,Kurt Warner,Bristol Palin,True,Kurt Warner,True,11,percent
+9,4,"['Brandy', 'Bristol Palin']","[np.float64(28.5), np.float64(26.5)]",2.0,Brandy,Bristol Palin,True,Brandy,True,11,percent
+2,11,"['Mike Catherwood', 'Sugar Ray Leonard']","[np.float64(17.0), np.float64(17.0)]",0.0,Mike Catherwood,Mike Catherwood,False,Mike Catherwood,False,12,percent
+3,10,"['Wendy Williams', 'Sugar Ray Leonard']","[np.float64(15.0), np.float64(20.0)]",5.0,Wendy Williams,Wendy Williams,False,Wendy Williams,False,12,percent
+4,9,"['Sugar Ray Leonard', 'Kendra Wilkinson']","[np.float64(21.0), np.float64(18.0)]",3.0,Sugar Ray Leonard,Kendra Wilkinson,True,Sugar Ray Leonard,True,12,percent
+5,8,"['Petra Nemcova', 'Kendra Wilkinson']","[np.float64(22.0), np.float64(22.0)]",0.0,Petra Nemcova,Petra Nemcova,False,Petra Nemcova,False,12,percent
+6,7,"['Chris Jericho', 'Ralph Macchio']","[np.float64(22.0), np.float64(24.0)]",2.0,Chris Jericho,Chris Jericho,False,Chris Jericho,False,12,percent
+7,6,"['Kendra Wilkinson', 'Kirstie Alley']","[np.float64(30.5), np.float64(30.0)]",0.5,Kendra Wilkinson,Kirstie Alley,True,Kendra Wilkinson,True,12,percent
+8,5,"['Romeo', 'Ralph Macchio']","[np.float64(26.0), np.float64(23.0)]",3.0,Romeo,Ralph Macchio,True,Romeo,True,12,percent
+9,4,"['Ralph Macchio', 'Kirstie Alley']","[np.float64(24.0), np.float64(27.0)]",3.0,Ralph Macchio,Ralph Macchio,False,Ralph Macchio,False,12,percent
+2,11,"['Elisabetta Canalis', 'Chaz Bono']","[np.float64(21.0), np.float64(17.0)]",4.0,Elisabetta Canalis,Chaz Bono,True,Elisabetta Canalis,True,13,percent
+3,10,"['Kristin Cavallari', 'Chaz Bono']","[np.float64(24.0), np.float64(18.0)]",6.0,Kristin Cavallari,Chaz Bono,True,Kristin Cavallari,True,13,percent
+4,9,"['Chynna Phillips', 'Carson Kressley']","[np.float64(21.0), np.float64(20.0)]",1.0,Chynna Phillips,Carson Kressley,True,Chynna Phillips,True,13,percent
+5,8,"['Carson Kressley', 'Chaz Bono']","[np.float64(19.0), np.float64(21.0)]",2.0,Carson Kressley,Carson Kressley,False,Carson Kressley,False,13,percent
+6,7,"['Chaz Bono', 'Hope Solo']","[np.float64(19.0), np.float64(20.0)]",1.0,Chaz Bono,Chaz Bono,False,Chaz Bono,False,13,percent
+7,6,"['David Arquette', 'Nancy Grace']","[np.float64(23.5), np.float64(22.0)]",1.5,David Arquette,Nancy Grace,True,David Arquette,True,13,percent
+8,5,"['Nancy Grace', 'Rob Kardashian']","[np.float64(22.0), np.float64(25.5)]",3.5,Nancy Grace,Nancy Grace,False,Nancy Grace,False,13,percent
+9,4,"['Hope Solo', 'J.R. Martinez']","[np.float64(24.4998), np.float64(28.0)]",3.5001999999999995,Hope Solo,Hope Solo,False,Hope Solo,False,13,percent
+2,12,"['Martina Navratilova', 'Gladys Knight']","[np.float64(17.0), np.float64(19.0)]",2.0,Martina Navratilova,Martina Navratilova,False,Martina Navratilova,False,14,percent
+3,11,"['Jack Wagner', 'Sherri Sheperd']","[np.float64(24.0), np.float64(24.0)]",0.0,Jack Wagner,Jack Wagner,False,Jack Wagner,False,14,percent
+4,10,"['Sherri Sheperd', 'Gladys Knight']","[np.float64(21.0), np.float64(20.0)]",1.0,Sherri Sheperd,Gladys Knight,True,Sherri Sheperd,True,14,percent
+5,9,"['Gavin DeGraw', 'Melissa Gilbert']","[np.float64(19.0), np.float64(21.0)]",2.0,Gavin DeGraw,Gavin DeGraw,False,Gavin DeGraw,False,14,percent
+6,8,"['Gladys Knight', 'Roshon Fegan']","[np.float64(24.0), np.float64(27.9998)]",3.9998000000000005,Gladys Knight,Gladys Knight,False,Gladys Knight,False,14,percent
+7,7,"['Jaleel White', 'Melissa Gilbert']","[np.float64(25.5), np.float64(23.5)]",2.0,Jaleel White,Melissa Gilbert,True,Jaleel White,True,14,percent
+8,6,"['Roshon Fegan', 'Melissa Gilbert']","[np.float64(28.0), np.float64(25.5)]",2.5,Roshon Fegan,Melissa Gilbert,True,Roshon Fegan,True,14,percent
+9,4,"['Maria Menounos', 'Katherine Jenkins']","[np.float64(29.5), np.float64(28.0)]",1.5,Maria Menounos,Katherine Jenkins,True,Maria Menounos,True,14,percent
+2,12,"['Joey Fatone', 'Bristol Palin']","[np.float64(22.5), np.float64(18.0)]",4.5,Joey Fatone,Bristol Palin,True,Joey Fatone,True,15,percent
+3,11,"['Helio Castroneves', 'Bristol Palin']","[np.float64(25.5), np.float64(22.5)]",3.0,Helio Castroneves,Bristol Palin,True,Helio Castroneves,True,15,percent
+4,9,"['Bristol Palin', 'Kirstie Alley']","[np.float64(32.0), np.float64(30.0)]",2.0,Bristol Palin,Kirstie Alley,True,Bristol Palin,True,15,percent
+6,8,"['Sabrina Bryan', 'Emmitt Smith']","[np.float64(30.0), np.float64(26.5)]",3.5,Sabrina Bryan,Emmitt Smith,True,Sabrina Bryan,True,15,percent
+8,7,"['Gilles Marini', 'Kirstie Alley']","[np.float64(29.2777), np.float64(25.5)]",3.7776999999999994,Gilles Marini,Kirstie Alley,True,Gilles Marini,True,15,percent
+9,5,"['Apolo Anton Ohno', 'Emmitt Smith']","[np.float64(28.611), np.float64(27.0)]",1.6110000000000007,Apolo Anton Ohno,Emmitt Smith,True,Apolo Anton Ohno,True,15,percent
+3,11,"['Wynonna Judd', 'D. L. Hughley']","[np.float64(15.0), np.float64(16.0)]",1.0,Wynonna Judd,Wynonna Judd,False,Wynonna Judd,False,16,percent
+4,10,"['Lisa Vanderpump', 'Victor Ortiz']","[np.float64(18.0), np.float64(18.0)]",0.0,Lisa Vanderpump,Lisa Vanderpump,False,Lisa Vanderpump,False,16,percent
+5,9,"['D. L. Hughley', 'Andy Dick']","[np.float64(18.0), np.float64(18.0)]",0.0,D. L. Hughley,D. L. Hughley,False,D. L. Hughley,False,16,percent
+6,8,"['Victor Ortiz', 'Andy Dick']","[np.float64(20.0), np.float64(21.5)]",1.5,Victor Ortiz,Victor Ortiz,False,Victor Ortiz,False,16,percent
+7,7,"['Andy Dick', 'Sean Lowe']","[np.float64(17.0), np.float64(24.0)]",7.0,Andy Dick,Andy Dick,False,Andy Dick,False,16,percent
+8,6,"['Sean Lowe', 'Ingo Rademacher']","[np.float64(21.0), np.float64(24.0)]",3.0,Sean Lowe,Sean Lowe,False,Sean Lowe,False,16,percent
+9,5,"['Ingo Rademacher', 'Zendaya']","[np.float64(25.5), np.float64(27.5)]",2.0,Ingo Rademacher,Ingo Rademacher,False,Ingo Rademacher,False,16,percent
+10,4,"['Alexandra Raisman', 'Jacoby Jones']","[np.float64(29.0), np.float64(27.999899999999997)]",1.0001000000000033,Alexandra Raisman,Jacoby Jones,True,Alexandra Raisman,True,16,percent
+2,12,"['Keyshawn Johnson', 'Bill Nye']","[np.float64(18.0), np.float64(17.0)]",1.0,Keyshawn Johnson,Bill Nye,True,Keyshawn Johnson,True,17,percent
+3,11,"['Bill Nye', 'Valerie Harper']","[np.float64(16.0), np.float64(16.0)]",0.0,Bill Nye,Bill Nye,False,Bill Nye,False,17,percent
+4,10,"['Valerie Harper', 'Brant Daugherty']","[np.float64(18.0), np.float64(21.0)]",3.0,Valerie Harper,Valerie Harper,False,Valerie Harper,False,17,percent
+5,9,"['Christina Milian', 'Leah Remini']","[np.float64(28.0), np.float64(22.0)]",6.0,Christina Milian,Leah Remini,True,Christina Milian,True,17,percent
+7,8,"['Nicole ""Snooki"" Polizzi', 'Bill Engvall']","[np.float64(27.0), np.float64(25.0)]",2.0,"Nicole ""Snooki"" Polizzi",Bill Engvall,True,"Nicole ""Snooki"" Polizzi",True,17,percent
+8,7,"['Brant Daugherty', 'Bill Engvall']","[np.float64(27.0), np.float64(24.0)]",3.0,Brant Daugherty,Bill Engvall,True,Brant Daugherty,True,17,percent
+9,6,"['Elizabeth Berkley Lauren', 'Bill Engvall']","[np.float64(28.0), np.float64(21.0)]",7.0,Elizabeth Berkley Lauren,Bill Engvall,True,Elizabeth Berkley Lauren,True,17,percent
+10,5,"['Leah Remini', 'Bill Engvall']","[np.float64(32.5), np.float64(30.0)]",2.5,Leah Remini,Bill Engvall,True,Leah Remini,True,17,percent
+11,4,"['Bill Engvall', 'Jack Osbourne']","[np.float64(25.499899999999997), np.float64(27.999899999999997)]",2.5,Bill Engvall,Bill Engvall,False,Bill Engvall,False,17,percent
+2,11,"['Sean Avery', 'Billy Dee Williams']","[np.float64(21.0), np.float64(15.0)]",6.0,Sean Avery,Billy Dee Williams,True,Sean Avery,True,18,percent
+5,9,"['Cody Simpson', 'Drew Carey']","[np.float64(34.0), np.float64(28.0)]",6.0,Cody Simpson,Drew Carey,True,Cody Simpson,True,18,percent
+6,8,"['Drew Carey', 'Candace Cameron Bure']","[np.float64(32.0), np.float64(32.0)]",0.0,Drew Carey,Drew Carey,False,Drew Carey,False,18,percent
+7,7,"['NeNe Leakes', 'James Maslow']","[np.float64(33.0), np.float64(35.0)]",2.0,NeNe Leakes,NeNe Leakes,False,NeNe Leakes,False,18,percent
+8,6,"['Danica McKellar', 'Meryl Davis']","[np.float64(38.0), np.float64(36.0)]",2.0,Danica McKellar,Meryl Davis,True,Danica McKellar,True,18,percent
+9,5,"['Charlie White', 'Candace Cameron Bure']","[np.float64(38.0), np.float64(36.0)]",2.0,Charlie White,Candace Cameron Bure,True,Charlie White,True,18,percent
+10,4,"['James Maslow', 'Candace Cameron Bure']","[np.float64(29.0), np.float64(25.9998)]",3.0001999999999995,James Maslow,Candace Cameron Bure,True,James Maslow,True,18,percent
+2,12,"['Tavis Smiley', 'Michael Waltrip']","[np.float64(28.0), np.float64(24.0)]",4.0,Tavis Smiley,Michael Waltrip,True,Tavis Smiley,True,19,percent
+3,11,"['Randy Couture', 'Michael Waltrip']","[np.float64(26.0), np.float64(28.0)]",2.0,Randy Couture,Randy Couture,False,Randy Couture,False,19,percent
+4,10,"['Betsey Johnson', 'Jonathan Bennett']","[np.float64(29.0), np.float64(24.0)]",5.0,Betsey Johnson,Jonathan Bennett,True,Betsey Johnson,True,19,percent
+6,9,"['Jonathan Bennett', 'Antonio Sabato Jr.']","[np.float64(32.0), np.float64(28.0)]",4.0,Jonathan Bennett,Antonio Sabato Jr.,True,Jonathan Bennett,True,19,percent
+7,8,"['Antonio Sabato Jr.', 'Michael Waltrip']","[np.float64(29.5), np.float64(28.0)]",1.5,Antonio Sabato Jr.,Michael Waltrip,True,Antonio Sabato Jr.,True,19,percent
+8,7,"['Michael Waltrip', 'Tommy Chong']","[np.float64(25.0), np.float64(29.0)]",4.0,Michael Waltrip,Michael Waltrip,False,Michael Waltrip,False,19,percent
+9,6,"['Lea Thompson', 'Tommy Chong']","[np.float64(35.0), np.float64(28.5)]",6.5,Lea Thompson,Tommy Chong,True,Lea Thompson,True,19,percent
+10,5,"['Tommy Chong', 'Sadie Robertson']","[np.float64(31.0), np.float64(37.0)]",6.0,Tommy Chong,Tommy Chong,False,Tommy Chong,False,19,percent
+11,4,"['Bethany Mota', 'Janel Parrish']","[np.float64(38.0), np.float64(38.99980000000001)]",0.9998000000000076,Bethany Mota,Bethany Mota,False,Bethany Mota,False,19,percent
+2,12,"['Redfoo', 'Chris Soules']","[np.float64(31.0), np.float64(21.0)]",10.0,Redfoo,Chris Soules,True,Redfoo,True,20,percent
+3,11,"['Charlotte McKinney', 'Patti LaBelle']","[np.float64(22.0), np.float64(22.0)]",0.0,Charlotte McKinney,Charlotte McKinney,False,Charlotte McKinney,False,20,percent
+4,10,"['Michael Sam', 'Chris Soules']","[np.float64(30.0), np.float64(27.0)]",3.0,Michael Sam,Chris Soules,True,Michael Sam,True,20,percent
+5,9,"['Suzanne Somers', 'Robert Herjavec']","[np.float64(28.0), np.float64(24.0)]",4.0,Suzanne Somers,Robert Herjavec,True,Suzanne Somers,True,20,percent
+6,8,"['Patti LaBelle', 'Robert Herjavec']","[np.float64(34.0), np.float64(33.5)]",0.5,Patti LaBelle,Robert Herjavec,True,Patti LaBelle,True,20,percent
+7,7,"['Willow Shields', 'Robert Herjavec']","[np.float64(39.0), np.float64(31.0)]",8.0,Willow Shields,Robert Herjavec,True,Willow Shields,True,20,percent
+8,6,"['Robert Herjavec', 'Noah Galloway']","[np.float64(31.0), np.float64(31.5)]",0.5,Robert Herjavec,Robert Herjavec,False,Robert Herjavec,False,20,percent
+9,4,"['Nastia Liukin', 'Noah Galloway']","[np.float64(40.0), np.float64(38.0)]",2.0,Nastia Liukin,Noah Galloway,True,Nastia Liukin,True,20,percent
+2,13,"['Victor Espinoza', 'Chaka Khan']","[np.float64(18.5), np.float64(15.0)]",3.5,Victor Espinoza,Chaka Khan,True,Victor Espinoza,True,21,percent
+4,10,"['Gary Busey', 'Paula Deen']","[np.float64(16.0), np.float64(18.0)]",2.0,Gary Busey,Gary Busey,False,Gary Busey,False,21,percent
+6,9,"['Paula Deen', 'Alexa PenaVega']","[np.float64(24.0), np.float64(30.0)]",6.0,Paula Deen,Paula Deen,False,Paula Deen,False,21,percent
+7,8,"['Hayes Grier', 'Alek Skarlatos']","[np.float64(28.0), np.float64(26.5)]",1.5,Hayes Grier,Alek Skarlatos,True,Hayes Grier,True,21,percent
+8,7,"['Andy Grammer', 'Alek Skarlatos']","[np.float64(23.9998), np.float64(25.0)]",1.0001999999999995,Andy Grammer,Andy Grammer,False,Andy Grammer,False,21,percent
+9,6,"['Alexa PenaVega', 'Tamar Braxton']","[np.float64(30.0), np.float64(24.5)]",5.5,Alexa PenaVega,Tamar Braxton,True,Alexa PenaVega,True,21,percent
+11,4,"['Carlos PenaVega', 'Alek Skarlatos']","[np.float64(30.0), np.float64(27.999899999999997)]",2.0001000000000033,Carlos PenaVega,Alek Skarlatos,True,Carlos PenaVega,True,21,percent
+2,12,"['Geraldo Rivera', 'Mischa Barton']","[np.float64(13.0), np.float64(15.0)]",2.0,Geraldo Rivera,Geraldo Rivera,False,Geraldo Rivera,False,22,percent
+3,11,"['Mischa Barton', 'Doug Flutie']","[np.float64(18.0), np.float64(20.0)]",2.0,Mischa Barton,Mischa Barton,False,Mischa Barton,False,22,percent
+4,10,"['Marla Maples', 'Doug Flutie']","[np.float64(28.0), np.float64(24.0)]",4.0,Marla Maples,Doug Flutie,True,Marla Maples,True,22,percent
+6,9,"['Doug Flutie', 'Kim Fields']","[np.float64(21.0), np.float64(24.0)]",3.0,Doug Flutie,Doug Flutie,False,Doug Flutie,False,22,percent
+7,8,"['Kim Fields', 'Jodie Sweetin']","[np.float64(26.0), np.float64(25.5)]",0.5,Kim Fields,Jodie Sweetin,True,Kim Fields,True,22,percent
+8,6,"['Jodie Sweetin', 'Wanya Morris']","[np.float64(30.0), np.float64(25.0)]",5.0,Jodie Sweetin,Wanya Morris,True,Jodie Sweetin,True,22,percent
+9,5,"['Antonio Brown', 'Ginger Zee']","[np.float64(27.5), np.float64(28.0)]",0.5,Antonio Brown,Antonio Brown,False,Antonio Brown,False,22,percent
+2,13,"['Jake T. Austin', 'Rick Perry']","[np.float64(24.0), np.float64(22.0)]",2.0,Jake T. Austin,Rick Perry,True,Jake T. Austin,True,23,percent
+3,12,"['Rick Perry', 'Vanilla Ice']","[np.float64(23.0), np.float64(23.0)]",0.0,Rick Perry,Rick Perry,False,Rick Perry,False,23,percent
+4,11,"['Babyface', 'Marilu Henner']","[np.float64(18.0), np.float64(21.0)]",3.0,Babyface,Babyface,False,Babyface,False,23,percent
+6,9,"['Amber Rose', 'Ryan Lochte']","[np.float64(28.0), np.float64(30.0)]",2.0,Amber Rose,Amber Rose,False,Amber Rose,False,23,percent
+7,8,"['Maureen McCormick', 'Marilu Henner']","[np.float64(33.0), np.float64(32.0)]",1.0,Maureen McCormick,Marilu Henner,True,Maureen McCormick,True,23,percent
+8,7,"['Ryan Lochte', 'Marilu Henner']","[np.float64(26.0), np.float64(23.0)]",3.0,Ryan Lochte,Marilu Henner,True,Ryan Lochte,True,23,percent
+9,6,"['Marilu Henner', 'James Hinchcliffe']","[np.float64(36.0), np.float64(36.0)]",0.0,Marilu Henner,Marilu Henner,False,Marilu Henner,False,23,percent
+10,5,"['Terra Jole', 'Calvin Johnson Jr.']","[np.float64(30.0), np.float64(28.0)]",2.0,Terra Jole,Calvin Johnson Jr.,True,Terra Jole,True,23,percent
+11,4,"['Jana Kramer', 'Calvin Johnson Jr.']","[np.float64(35.5), np.float64(38.3331)]",2.8331000000000017,Jana Kramer,Jana Kramer,False,Jana Kramer,False,23,percent
+2,12,"['Chris Kattan', 'Mr. T']","[np.float64(22.0), np.float64(22.0)]",0.0,Chris Kattan,Chris Kattan,False,Chris Kattan,False,24,percent
+3,11,"['Charo', 'Mr. T']","[np.float64(24.0), np.float64(24.0)]",0.0,Charo,Charo,False,Charo,False,24,percent
+4,10,"['Mr. T', 'Erika Jayne']","[np.float64(28.0), np.float64(30.0)]",2.0,Mr. T,Mr. T,False,Mr. T,False,24,percent
+5,9,"['Erika Jayne', 'David Ross']","[np.float64(32.0), np.float64(29.0)]",3.0,Erika Jayne,David Ross,True,Erika Jayne,True,24,percent
+6,8,"['Heather Morris', 'Nick Viall']","[np.float64(37.0), np.float64(30.5)]",6.5,Heather Morris,Nick Viall,True,Heather Morris,True,24,percent
+7,7,"['Nancy Kerrigan', 'Bonner Bolton']","[np.float64(36.0), np.float64(31.0)]",5.0,Nancy Kerrigan,Bonner Bolton,True,Nancy Kerrigan,True,24,percent
+8,5,"['Bonner Bolton', 'David Ross']","[np.float64(29.0), np.float64(32.5)]",3.5,Bonner Bolton,Bonner Bolton,False,Bonner Bolton,False,24,percent
+9,4,"['Simone Biles', 'David Ross']","[np.float64(40.0), np.float64(35.0)]",5.0,Simone Biles,David Ross,True,Simone Biles,True,24,percent
+2,13,"['Barbara Corcoran', 'Derek Fisher']","[np.float64(17.0), np.float64(19.0)]",2.0,Barbara Corcoran,Barbara Corcoran,False,Barbara Corcoran,False,25,percent
+4,11,"['Derek Fisher', 'Nick Lachey']","[np.float64(23.0), np.float64(22.0)]",1.0,Derek Fisher,Nick Lachey,True,Derek Fisher,True,25,percent
+5,10,"['Sasha Pieterse', 'Nick Lachey']","[np.float64(24.0), np.float64(22.0)]",2.0,Sasha Pieterse,Nick Lachey,True,Sasha Pieterse,True,25,percent
+6,9,"['Nick Lachey', 'Drew Scott']","[np.float64(26.0), np.float64(30.0)]",4.0,Nick Lachey,Nick Lachey,False,Nick Lachey,False,25,percent
+7,8,"['Nikki Bella', 'Terrell Owens']","[np.float64(24.0), np.float64(24.5)]",0.5,Nikki Bella,Nikki Bella,False,Nikki Bella,False,25,percent
+8,6,"['Terrell Owens', 'Drew Scott']","[np.float64(25.5), np.float64(23.5)]",2.0,Terrell Owens,Drew Scott,True,Terrell Owens,True,25,percent
+9,5,"['Victoria Arlen', 'Drew Scott']","[np.float64(28.0), np.float64(24.0)]",4.0,Victoria Arlen,Drew Scott,True,Victoria Arlen,True,25,percent
+10,4,"['Drew Scott', 'Frankie Muniz']","[np.float64(37.5), np.float64(38.8887)]",1.3887,Drew Scott,Drew Scott,False,Drew Scott,False,25,percent
+2,8,"['Kareem Abdul-Jabbar', 'Jennie Finch Daigle']","[np.float64(29.5), np.float64(31.5)]",2.0,Kareem Abdul-Jabbar,Kareem Abdul-Jabbar,False,Kareem Abdul-Jabbar,False,26,percent
+3,6,"['Jennie Finch Daigle', 'Chris Mazdzer']","[np.float64(29.0), np.float64(33.0)]",4.0,Jennie Finch Daigle,Jennie Finch Daigle,False,Jennie Finch Daigle,False,26,percent
+2,12,"['Danelle Umstead', 'Joe Amabile']","[np.float64(18.5), np.float64(17.5)]",1.0,Danelle Umstead,Joe Amabile,True,Danelle Umstead,True,27,percent
+3,11,"['Nancy McKeon', 'Joe Amabile']","[np.float64(22.0), np.float64(18.0)]",4.0,Nancy McKeon,Joe Amabile,True,Nancy McKeon,True,27,percent
+4,10,"['Tinashe', 'Joe Amabile']","[np.float64(26.0), np.float64(15.0)]",11.0,Tinashe,Joe Amabile,True,Tinashe,True,27,percent
+6,9,"['Mary Lou Retton', 'John Schneider']","[np.float64(24.0), np.float64(19.0)]",5.0,Mary Lou Retton,John Schneider,True,Mary Lou Retton,True,27,percent
+7,8,"['John Schneider', 'Joe Amabile']","[np.float64(27.0), np.float64(23.5)]",3.5,John Schneider,Joe Amabile,True,John Schneider,True,27,percent
+8,6,"['Juan Pablo Di Pace', 'Bobby Bones']","[np.float64(30.0), np.float64(22.5)]",7.5,Juan Pablo Di Pace,Bobby Bones,True,Juan Pablo Di Pace,True,27,percent
+2,12,"['Mary Wilson', 'Sailor Brinkley-Cook']","[np.float64(15.0), np.float64(18.0)]",3.0,Mary Wilson,Mary Wilson,False,Mary Wilson,False,28,rank
+4,10,"['Lamar Odom', 'Karamo Brown']","[np.float64(20.0), np.float64(28.0)]",8.0,Lamar Odom,Lamar Odom,False,Lamar Odom,False,28,rank
+7,8,"['Karamo Brown', 'Sean Spicer']","[np.float64(24.5), np.float64(21.0)]",3.5,Karamo Brown,Sean Spicer,True,Karamo Brown,True,28,rank
+8,7,"['Kate Flannery', 'Hannah Brown']","[np.float64(25.9998), np.float64(30.9998)]",5.0,Kate Flannery,Kate Flannery,False,Kate Flannery,False,28,rank
+9,6,"['Sean Spicer', 'Hannah Brown']","[np.float64(25.0), np.float64(35.5)]",10.5,Sean Spicer,Sean Spicer,False,Sean Spicer,False,28,rank
+10,5,"['James Van Der Beek', 'Hannah Brown']","[np.float64(25.5), np.float64(27.0)]",1.5,James Van Der Beek,James Van Der Beek,False,James Van Der Beek,False,28,rank
+2,15,"['Charles Oakley', 'Anne Heche']","[np.float64(15.0), np.float64(18.0)]",3.0,Charles Oakley,Charles Oakley,False,Charles Oakley,False,29,rank
+3,14,"['Carole Baskin', 'Jeannie Mai']","[np.float64(12.0), np.float64(22.0)]",10.0,Carole Baskin,Carole Baskin,False,Carole Baskin,False,29,rank
+4,13,"['Anne Heche', 'Nev Schulman']","[np.float64(21.0), np.float64(24.0)]",3.0,Anne Heche,Anne Heche,False,Anne Heche,False,29,rank
+5,12,"['Jesse Metcalfe', 'Jeannie Mai']","[np.float64(19.0), np.float64(24.0)]",5.0,Jesse Metcalfe,Jesse Metcalfe,False,Jesse Metcalfe,False,29,rank
+6,11,"['Veron Davis', 'Chrishell Stause']","[np.float64(21.0), np.float64(24.0)]",3.0,Veron Davis,Veron Davis,False,Veron Davis,False,29,rank
+7,10,"['Monica Aldama', 'Jeannie Mai']","[np.float64(22.0), np.float64(25.0)]",3.0,Monica Aldama,Monica Aldama,False,Monica Aldama,False,29,rank
+8,8,"['Chrishell Stause', 'Kaitlyn Bristowe']","[np.float64(27.0), np.float64(28.0)]",1.0,Chrishell Stause,Chrishell Stause,False,Chrishell Stause,False,29,rank
+9,7,"['AJ McLean', 'Nelly']","[np.float64(24.9998), np.float64(24.0)]",0.9998000000000005,AJ McLean,Nelly,True,AJ McLean,True,29,rank
+10,6,"['Skai Jackson', 'Nelly']","[np.float64(28.5), np.float64(28.0)]",0.5,Skai Jackson,Nelly,True,Skai Jackson,True,29,rank
+2,15,"['Martin Kove', 'Cody Rigsby']","[np.float64(15.0), np.float64(24.0)]",9.0,Martin Kove,Martin Kove,False,Martin Kove,False,30,rank
+3,14,"['Christine Chiu', 'Suni Lee']","[np.float64(21.0), np.float64(21.0)]",0.0,Christine Chiu,Christine Chiu,False,Christine Chiu,False,30,rank
+4,13,"['Brian Austin Green', 'Kenya Moore']","[np.float64(26.0), np.float64(29.5)]",3.5,Brian Austin Green,Brian Austin Green,False,Brian Austin Green,False,30,rank
+5,11,"['Melanie C', 'Iman Shumpert']","[np.float64(36.0), np.float64(28.0)]",8.0,Melanie C,Iman Shumpert,True,Melanie C,True,30,rank
+6,10,"['Kenya Moore', 'Amanda Kloots']","[np.float64(32.0), np.float64(38.0)]",6.0,Kenya Moore,Kenya Moore,False,Kenya Moore,False,30,rank
+7,9,"['Mike ""The Miz"" Mizanin', 'Cody Rigsby']","[np.float64(32.0), np.float64(36.0)]",4.0,"Mike ""The Miz"" Mizanin","Mike ""The Miz"" Mizanin",False,"Mike ""The Miz"" Mizanin",False,30,rank
+8,8,"['Jimmie Allen', 'Cody Rigsby']","[np.float64(32.0), np.float64(38.0)]",6.0,Jimmie Allen,Jimmie Allen,False,Jimmie Allen,False,30,rank
+9,6,"['Melora Hardin', 'Cody Rigsby']","[np.float64(36.0), np.float64(35.5)]",0.5,Melora Hardin,Cody Rigsby,True,Melora Hardin,True,30,rank
+2,15,"['Teresa Giudice', 'Shangela']","[np.float64(23.0), np.float64(28.0)]",5.0,Teresa Giudice,Teresa Giudice,False,Teresa Giudice,False,31,rank
+3,14,"['Cheryl Ladd', 'Vinny Guadagnino']","[np.float64(24.0), np.float64(23.0)]",1.0,Cheryl Ladd,Vinny Guadagnino,True,Cheryl Ladd,True,31,rank
+4,13,"['Sam Champion', 'Jordin Sparks']","[np.float64(25.0), np.float64(34.0)]",9.0,Sam Champion,Sam Champion,False,Sam Champion,False,31,rank
+5,12,"['Joseph Baena', 'Shangela']","[np.float64(35.0), np.float64(38.5)]",3.5,Joseph Baena,Joseph Baena,False,Joseph Baena,False,31,rank
+6,10,"['Jessie James Decker', 'Jordin Sparks']","[np.float64(32.0), np.float64(34.0)]",2.0,Jessie James Decker,Jessie James Decker,False,Jessie James Decker,False,31,rank
+7,9,"['Jordin Sparks', 'Shangela']","[np.float64(34.5), np.float64(36.5)]",2.0,Jordin Sparks,Jordin Sparks,False,Jordin Sparks,False,31,rank
+8,8,"[""Heidi D'Amelio"", 'Daniel Durant']","[np.float64(35.0), np.float64(39.0)]",4.0,Heidi D'Amelio,Heidi D'Amelio,False,Heidi D'Amelio,False,31,rank
+9,6,"['Trevor Donovan', ""Charli D'Amelio""]","[np.float64(32.5), np.float64(40.0)]",7.5,Trevor Donovan,Trevor Donovan,False,Trevor Donovan,False,31,rank
+2,13,"['Jamie Lynn Spears', 'Mauricio Umansky']","[np.float64(16.0), np.float64(12.0)]",4.0,Jamie Lynn Spears,Mauricio Umansky,True,Jamie Lynn Spears,True,32,rank
+3,12,"['Tyson Beckford', 'Mauricio Umansky']","[np.float64(20.0), np.float64(23.0)]",3.0,Tyson Beckford,Tyson Beckford,False,Tyson Beckford,False,32,rank
+4,11,"['Adrian Peterson', 'Mauricio Umansky']","[np.float64(21.0), np.float64(19.0)]",2.0,Adrian Peterson,Mauricio Umansky,True,Adrian Peterson,True,32,rank
+5,10,"['Mira Sorvino', 'Barry Williams']","[np.float64(22.0), np.float64(24.0)]",2.0,Mira Sorvino,Mira Sorvino,False,Mira Sorvino,False,32,rank
+6,9,"['Mauricio Umansky', 'Charity Lawson']","[np.float64(33.0), np.float64(38.0)]",5.0,Mauricio Umansky,Mauricio Umansky,False,Mauricio Umansky,False,32,rank
+8,7,"['Barry Williams', 'Harry Jowsey']","[np.float64(35.0), np.float64(28.0)]",7.0,Barry Williams,Harry Jowsey,True,Barry Williams,True,32,rank
+9,6,"['Harry Jowsey', 'Charity Lawson']","[np.float64(30.0), np.float64(38.0)]",8.0,Harry Jowsey,Harry Jowsey,False,Harry Jowsey,False,32,rank
+2,13,"['Tori Spelling', 'Anna Delvey']","[np.float64(19.0), np.float64(17.0)]",2.0,Tori Spelling,Anna Delvey,True,Tori Spelling,True,33,rank
+3,11,"['Eric Roberts', 'Ilona Maher']","[np.float64(23.0), np.float64(28.0)]",5.0,Eric Roberts,Eric Roberts,False,Eric Roberts,False,33,rank
+4,9,"['Brooks Nader', 'Jenn Tran']","[np.float64(32.0), np.float64(32.0)]",0.0,Brooks Nader,Brooks Nader,False,Brooks Nader,False,33,rank
+5,8,"['Phaedra Parks', 'Joey Graziadei']","[np.float64(24.0), np.float64(26.0)]",2.0,Phaedra Parks,Phaedra Parks,False,Phaedra Parks,False,33,rank
+6,7,"['Jenn Tran', 'Ilona Maher']","[np.float64(31.0), np.float64(24.0)]",7.0,Jenn Tran,Ilona Maher,True,Jenn Tran,True,33,rank
+7,6,"['Dwight Howard\xa0', 'Joey Graziadei']","[np.float64(24.0), np.float64(27.5)]",3.5,Dwight Howard ,Dwight Howard ,False,Dwight Howard ,False,33,rank
+2,14,"['Corey Feldman', 'Elaine Hendrix']","[np.float64(15.0), np.float64(21.0)]",6.0,Corey Feldman,Corey Feldman,False,Corey Feldman,False,34,rank
+3,12,"['Lauren Jauregui', 'Robert Irwin']","[np.float64(18.0), np.float64(22.0)]",4.0,Lauren Jauregui,Lauren Jauregui,False,Lauren Jauregui,False,34,rank
+4,11,"['Hilaria Baldwin', 'Jen Affleck']","[np.float64(23.0), np.float64(23.0)]",0.0,Hilaria Baldwin,Hilaria Baldwin,False,Hilaria Baldwin,False,34,rank
+6,10,"['Scott Hoying', 'Jen Affleck']","[np.float64(28.0), np.float64(32.0)]",4.0,Scott Hoying,Scott Hoying,False,Scott Hoying,False,34,rank
+7,9,"['Jen Affleck', 'Andy Richter']","[np.float64(34.0), np.float64(29.0)]",5.0,Jen Affleck,Andy Richter,True,Jen Affleck,True,34,rank
+8,8,"['Danielle Fishel', 'Andy Richter']","[np.float64(37.0), np.float64(34.0)]",3.0,Danielle Fishel,Andy Richter,True,Danielle Fishel,True,34,rank
+9,7,"['Andy Richter', 'Robert Irwin']","[np.float64(29.0), np.float64(42.0)]",13.0,Andy Richter,Andy Richter,False,Andy Richter,False,34,rank
+10,6,"['Whitney Leavitt', 'Alix Earle']","[np.float64(29.0), np.float64(29.0)]",0.0,Whitney Leavitt,Whitney Leavitt,False,Whitney Leavitt,False,34,rank

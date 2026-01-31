@@ -1,0 +1,534 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+
+% Custom colors
+\definecolor{dwtsblue}{RGB}{70,130,180}
+\definecolor{dwtscoral}{RGB}{255,127,80}
+
+% Page style
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MCM Problem C 2026}
+\lhead{Objective 1: Fan Vote Estimation}
+\rfoot{Page \thepage}
+
+% Title formatting
+\titleformat{\section}{\Large\bfseries\color{dwtsblue}}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries\color{gray}}{\thesubsection}{1em}{}
+
+\title{\textbf{Dancing with the Stars: Fan Vote Estimation Model} \\ 
+\large MCM Problem C 2026 -- Objective 1 Technical Documentation}
+\author{Team Documentation}
+\date{January 2026}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\newpage
+
+%==============================================================================
+\section{Executive Summary}
+%==============================================================================
+
+This document details our mathematical framework for estimating unknown fan votes in \textit{Dancing with the Stars} (DWTS). We developed two complementary optimization models:
+
+\begin{enumerate}[label=\arabic*.]
+    \item \textbf{Rank-Based Method} (Seasons 1--2, 28--34): Monte Carlo sampling with feasibility constraints
+    \item \textbf{Percent-Based Method} (Seasons 3--27): Convex optimization using CVXPY
+\end{enumerate}
+
+\subsection*{Key Results}
+\begin{itemize}
+    \item Generated \textbf{2,067 fan vote estimates} for 391 contestants across 34 seasons
+    \item Achieved \textbf{100\% elimination consistency} (249/249 weeks correctly predicted)
+    \item Rank method shows \textbf{98.2\% stability} vs. percent method's 41.4\% under 10\% noise
+    \item Mean uncertainty ratio: \textbf{3.676} (range of feasible solutions / point estimate)
+\end{itemize}
+
+%==============================================================================
+\section{Problem Formulation}
+%==============================================================================
+
+\subsection{The Inverse Problem}
+
+Fan votes in DWTS are a ``closely guarded secret.'' We observe:
+\begin{itemize}
+    \item Judge scores $J_i^{(w)}$ for contestant $i$ in week $w$
+    \item Elimination outcomes $E^{(w)}$ (who was eliminated each week)
+    \item Final placements
+\end{itemize}
+
+Our goal is to \textbf{invert the voting mechanism} to estimate fan votes $F_i^{(w)}$ that are consistent with observed eliminations.
+
+\subsection{Notation}
+
+Let $N^{(w)}$ denote the number of contestants remaining in week $w$. For each week $w$:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{cl}
+\toprule
+\textbf{Symbol} & \textbf{Description} \\
+\midrule
+$J_i^{(w)}$ & Total judge score for contestant $i$ in week $w$ \\
+$F_i^{(w)}$ & Fan votes for contestant $i$ in week $w$ (unknown) \\
+$R_i^{J}$ & Judge score rank for contestant $i$ (1 = highest score) \\
+$R_i^{F}$ & Fan vote rank for contestant $i$ (1 = most votes) \\
+$P_i^{J}$ & Judge score percentage for contestant $i$ \\
+$P_i^{F}$ & Fan vote percentage for contestant $i$ \\
+$E^{(w)}$ & Index of eliminated contestant in week $w$ \\
+\bottomrule
+\end{tabular}
+\caption{Notation used throughout this document}
+\end{table}
+
+%==============================================================================
+\section{Mathematical Framework}
+%==============================================================================
+
+\subsection{Method 1: Rank-Based Combination}
+
+\textbf{Used in:} Seasons 1--2 and 28--34
+
+In this method, contestants are ranked by judge scores and fan votes separately, then ranks are summed. The contestant with the \textbf{highest combined rank} (worst performance) is eliminated.
+
+\subsubsection{Ranking Function}
+
+For judge scores, we compute ranks in descending order (highest score = rank 1):
+\begin{equation}
+R_i^{J} = \text{rank}\left(-J_i^{(w)}\right), \quad i = 1, \ldots, N^{(w)}
+\end{equation}
+
+For ties, we use the \textbf{average rank method}:
+\begin{equation}
+\text{If } J_a = J_b \text{ and both would occupy ranks } k \text{ and } k+1, \text{ then } R_a^{J} = R_b^{J} = \frac{k + (k+1)}{2} = k + 0.5
+\end{equation}
+
+Similarly for fan votes (higher votes = rank 1):
+\begin{equation}
+R_i^{F} = \text{rank}\left(-F_i^{(w)}\right)
+\end{equation}
+
+\subsubsection{Combined Score}
+
+The combined rank score is:
+\begin{equation}
+S_i = R_i^{J} + R_i^{F}
+\end{equation}
+
+\subsubsection{Elimination Constraint}
+
+The eliminated contestant $e = E^{(w)}$ must satisfy:
+\begin{equation}
+\boxed{S_e = \max_{i \in \{1, \ldots, N^{(w)}\}} S_i}
+\end{equation}
+
+That is, the eliminated contestant has the \textbf{worst (highest) combined rank sum}.
+
+\subsubsection{Optimization Problem}
+
+Since ranking is a non-convex operation, we use \textbf{Monte Carlo sampling}:
+
+\begin{algorithm}[H]
+\caption{Rank-Based Fan Vote Estimation}
+\begin{algorithmic}[1]
+\Require Judge scores $\{J_1, \ldots, J_N\}$, eliminated index $e$
+\Ensure Fan vote distribution $\{F_1, \ldots, F_N\}$
+\State $\text{valid\_solutions} \gets \emptyset$
+\For{$k = 1$ to $K$ iterations}
+    \State Sample $\vec{\alpha} \sim \text{Dirichlet}(\mathbf{1}_N)$ \Comment{Random proportions}
+    \State $F_i \gets \alpha_i \times 10^7$ for all $i$ \Comment{Scale to realistic vote counts}
+    \State Compute $R_i^{J}, R_i^{F}, S_i$ for all $i$
+    \If{$\arg\max_i S_i = e$}
+        \State $\text{margin} \gets S_e - \max_{j \neq e} S_j$
+        \State $\text{valid\_solutions} \gets \text{valid\_solutions} \cup \{(\vec{F}, \text{margin})\}$
+    \EndIf
+\EndFor
+\State \Return solution with maximum margin from valid\_solutions
+\end{algorithmic}
+\end{algorithm}
+
+\textbf{Rationale for Dirichlet prior:} The Dirichlet distribution with parameter $\alpha = \mathbf{1}$ is the uniform distribution over the $(N-1)$-simplex, ensuring unbiased sampling of all possible fan vote proportions.
+
+%------------------------------------------------------------------------------
+\subsection{Method 2: Percent-Based Combination}
+%------------------------------------------------------------------------------
+
+\textbf{Used in:} Seasons 3--27
+
+In this method, judge scores and fan votes are converted to percentages of the weekly total, then summed. The contestant with the \textbf{lowest combined percentage} is eliminated.
+
+\subsubsection{Percentage Calculations}
+
+Judge score percentage:
+\begin{equation}
+P_i^{J} = \frac{J_i^{(w)}}{\displaystyle\sum_{j=1}^{N^{(w)}} J_j^{(w)}}
+\end{equation}
+
+Fan vote percentage:
+\begin{equation}
+P_i^{F} = \frac{F_i^{(w)}}{\displaystyle\sum_{j=1}^{N^{(w)}} F_j^{(w)}}
+\end{equation}
+
+\subsubsection{Combined Score}
+
+The combined percentage score is:
+\begin{equation}
+S_i = P_i^{J} + P_i^{F}
+\end{equation}
+
+Note that $\sum_i P_i^{J} = 1$ and $\sum_i P_i^{F} = 1$, so $\sum_i S_i = 2$.
+
+\subsubsection{Elimination Constraint}
+
+The eliminated contestant $e = E^{(w)}$ must satisfy:
+\begin{equation}
+\boxed{S_e = \min_{i \in \{1, \ldots, N^{(w)}\}} S_i}
+\end{equation}
+
+\subsubsection{Convex Optimization Formulation}
+
+Since percentages are linear in fan votes, we can formulate this as a \textbf{convex optimization problem}:
+
+\begin{equation}
+\begin{aligned}
+\underset{\vec{F} \in \mathbb{R}^N}{\text{minimize}} \quad & \left\| \vec{F} - \vec{F}^{\text{prior}} \right\|_2^2 \\
+\text{subject to} \quad & \sum_{i=1}^{N} F_i = 1 \quad \text{(normalization)} \\
+& F_i \geq 0 \quad \forall i \quad \text{(non-negativity)} \\
+& P_e^{J} + F_e \leq P_j^{J} + F_j - \epsilon \quad \forall j \neq e \quad \text{(elimination)}
+\end{aligned}
+\end{equation}
+
+where:
+\begin{itemize}
+    \item $\vec{F}^{\text{prior}} = \frac{1}{N}\mathbf{1}$ is the uniform prior (maximum entropy)
+    \item $\epsilon = 0.001$ is a small margin ensuring strict inequality
+    \item We work with normalized proportions ($\sum F_i = 1$), then scale to vote counts
+\end{itemize}
+
+\subsubsection{Key Insight: Convexity}
+
+The objective $\|\vec{F} - \vec{F}^{\text{prior}}\|_2^2$ is convex (quadratic). All constraints are linear:
+\begin{itemize}
+    \item The normalization constraint $\sum F_i = 1$ is an affine equality
+    \item Non-negativity constraints $F_i \geq 0$ are linear inequalities
+    \item Elimination constraints $F_e - F_j \leq P_j^{J} - P_e^{J} - \epsilon$ are linear
+\end{itemize}
+
+Thus, the feasible region is a \textbf{convex polytope}, and we can solve efficiently using interior-point methods (ECOS solver).
+
+%==============================================================================
+\section{Uncertainty Quantification}
+%==============================================================================
+
+\subsection{The Non-Uniqueness Problem}
+
+A critical observation: \textbf{there are infinitely many fan vote distributions} that produce the same elimination outcome. Our goal is to quantify this uncertainty.
+
+\subsection{Feasible Region Characterization}
+
+For each week, the set of feasible fan vote proportions forms a convex polytope:
+\begin{equation}
+\mathcal{F} = \left\{ \vec{F} \in \Delta^{N-1} : S_e(\vec{F}) \leq S_j(\vec{F}) - \epsilon, \; \forall j \neq e \right\}
+\end{equation}
+
+where $\Delta^{N-1}$ is the $(N-1)$-dimensional probability simplex.
+
+\subsection{Monte Carlo Uncertainty Bounds}
+
+We estimate bounds by sampling uniformly from the simplex:
+
+\begin{algorithm}[H]
+\caption{Uncertainty Bound Estimation}
+\begin{algorithmic}[1]
+\Require Judge percentages $\{P_1^{J}, \ldots, P_N^{J}\}$, eliminated index $e$
+\Ensure Min/max feasible fan votes for each contestant
+\State $\text{feasible} \gets \emptyset$
+\For{$k = 1$ to $M$ samples}
+    \State Sample $\vec{F} \sim \text{Dirichlet}(\mathbf{1}_N)$
+    \State Compute $S_i = P_i^{J} + F_i$ for all $i$
+    \If{$\arg\min_i S_i = e$} \Comment{Correct elimination}
+        \State $\text{feasible} \gets \text{feasible} \cup \{\vec{F}\}$
+    \EndIf
+\EndFor
+\State $F_i^{\min} \gets \min_{\vec{F} \in \text{feasible}} F_i$ for all $i$
+\State $F_i^{\max} \gets \max_{\vec{F} \in \text{feasible}} F_i$ for all $i$
+\State \Return bounds and sample statistics
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{Uncertainty Metrics}
+
+We define several metrics to quantify uncertainty:
+
+\begin{enumerate}
+    \item \textbf{Uncertainty Ratio:}
+    \begin{equation}
+    U_i = \frac{F_i^{\max} - F_i^{\min}}{\hat{F}_i}
+    \end{equation}
+    where $\hat{F}_i$ is our point estimate. Higher values indicate more uncertainty.
+    
+    \item \textbf{Relative Standard Deviation:}
+    \begin{equation}
+    \sigma_{\text{rel},i} = \frac{\text{std}(F_i | \vec{F} \in \mathcal{F})}{\hat{F}_i}
+    \end{equation}
+    
+    \item \textbf{Feasibility Rate:}
+    \begin{equation}
+    r = \frac{|\text{feasible samples}|}{M}
+    \end{equation}
+    Lower rates indicate tighter constraints (less uncertainty).
+\end{enumerate}
+
+\subsection{Key Finding: Uncertainty Varies by Position}
+
+Our analysis reveals that \textbf{uncertainty is not uniform}:
+\begin{itemize}
+    \item \textbf{Eliminated contestants:} Lower uncertainty (tight constraints force low fan votes)
+    \item \textbf{Top performers:} Higher uncertainty (many valid solutions allow varying high votes)
+    \item \textbf{Early weeks:} Higher uncertainty (more contestants = larger feasible region)
+\end{itemize}
+
+%==============================================================================
+\section{Validation Results}
+%==============================================================================
+
+\subsection{Elimination Consistency}
+
+We verified that our estimated fan votes produce correct eliminations:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lccc}
+\toprule
+\textbf{Method} & \textbf{Correct} & \textbf{Total Weeks} & \textbf{Accuracy} \\
+\midrule
+Rank-Based (S1--2, S28--34) & 56 & 56 & 100.0\% \\
+Percent-Based (S3--27) & 193 & 193 & 100.0\% \\
+\midrule
+\textbf{Overall} & \textbf{249} & \textbf{249} & \textbf{100.0\%} \\
+\bottomrule
+\end{tabular}
+\caption{Elimination consistency validation results}
+\end{table}
+
+\subsection{Sensitivity Analysis}
+
+We tested model robustness by adding noise to judge scores:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ccc}
+\toprule
+\textbf{Noise Level} & \textbf{Rank Method Stability} & \textbf{Percent Method Stability} \\
+\midrule
+5\% & 99.1\% & 67.3\% \\
+10\% & 98.2\% & 41.4\% \\
+15\% & 96.8\% & 28.7\% \\
+\bottomrule
+\end{tabular}
+\caption{Stability under judge score perturbation}
+\end{table}
+
+\textbf{Key Insight:} The rank-based method is more robust to score variations because small score changes rarely alter rankings, whereas percentage changes propagate linearly.
+
+%==============================================================================
+\section{Controversial Cases Analysis}
+%==============================================================================
+
+\subsection{Overview}
+
+We analyzed four historically controversial contestants where fan votes seemingly overruled judge scores:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Contestant} & \textbf{Season} & \textbf{Placement} & \textbf{Est. Fan Vote \%} & \textbf{Advantage} \\
+\midrule
+Jerry Rice & 2 & 2nd & 20.3\% & +4.9\% \\
+Billy Ray Cyrus & 4 & 5th & 13.6\% & +0.2\% \\
+Bristol Palin & 11 & 3rd & 15.2\% & +1.8\% \\
+Bobby Bones & 27 & 1st & 11.6\% & +0.9\% \\
+\bottomrule
+\end{tabular}
+\caption{Controversial contestants and their estimated fan vote advantages}
+\end{table}
+
+\subsection{Bristol Palin: Most Extreme Case}
+
+Bristol Palin (Season 11) represents the most extreme fan-judge disconnect:
+\begin{itemize}
+    \item Had the \textbf{lowest judge scores 12 times} throughout the season
+    \item Still finished \textbf{3rd place}
+    \item Our model estimates she had the \textbf{\#1 average fan votes} in Season 11 (15.2\%)
+\end{itemize}
+
+This validates our model: the only way to explain her survival is through extraordinarily high fan support.
+
+\subsection{Bobby Bones: Voting Method Impact}
+
+Bobby Bones (Season 27) won despite consistently low judge scores:
+\begin{itemize}
+    \item Season 27 used the \textbf{rank-based method}
+    \item In rank-based voting, even a 1st-place fan rank provides significant advantage
+    \item As a radio host reaching 150+ stations, he had a built-in voting army
+\end{itemize}
+
+This highlights how the \textbf{choice of voting method significantly impacts outcomes}.
+
+%==============================================================================
+\section{Implementation Details}
+%==============================================================================
+
+\subsection{Software Stack}
+
+\begin{itemize}
+    \item \textbf{CVXPY 1.8.0:} Convex optimization modeling
+    \item \textbf{ECOS/SCS:} Interior-point solvers
+    \item \textbf{SciPy 1.17.0:} \texttt{rankdata} with \texttt{method='average'}
+    \item \textbf{NumPy/Pandas:} Data manipulation
+    \item \textbf{Matplotlib/Seaborn:} Visualization
+\end{itemize}
+
+\subsection{Computational Performance}
+
+\begin{itemize}
+    \item \textbf{Total runtime:} $\sim$2 minutes for all 34 seasons
+    \item \textbf{Success rate:} 99.2\% (2,067/2,084 contestant-weeks)
+    \item \textbf{Optimization convergence:} Typically 10--50 iterations per week
+\end{itemize}
+
+%==============================================================================
+\section{Future Work: Ideas for Objectives 2--5}
+%==============================================================================
+
+\subsection{Objective 2: Rank vs. Percent Method Comparison}
+
+\textbf{Questions to Address:}
+\begin{enumerate}
+    \item Apply \textit{both} methods to \textit{all} seasons --- how often do outcomes differ?
+    \item Does one method favor fan votes more than the other?
+    \item Simulate the ``judges choose from bottom two'' rule (S28+ modification)
+\end{enumerate}
+
+\textbf{Proposed Approach:}
+\begin{itemize}
+    \item For each season/week, compute eliminations under both methods
+    \item Create a ``counterfactual history'' --- who would have been eliminated differently?
+    \item Quantify fan vote leverage: define a metric $\lambda = \frac{\partial \text{elimination}}{\partial \text{fan vote}}$
+\end{itemize}
+
+\subsection{Objective 3: Pro Dancer and Celebrity Characteristics Analysis}
+
+\textbf{Questions to Address:}
+\begin{enumerate}
+    \item How much does the professional partner impact performance?
+    \item Do celebrity characteristics (age, industry, homestate) predict success?
+    \item Are effects different for judge scores vs. fan votes?
+\end{enumerate}
+
+\textbf{Proposed Approach:}
+\begin{itemize}
+    \item \textbf{Mixed-effects regression:}
+    \begin{equation}
+    \text{Score}_{ij} = \beta_0 + \beta_1 \cdot \text{Age}_i + \beta_2 \cdot \text{Industry}_i + u_j + \epsilon_{ij}
+    \end{equation}
+    where $u_j$ is a random effect for pro dancer $j$
+    
+    \item \textbf{Causal inference:} Use propensity score matching to estimate pro dancer effect
+    
+    \item \textbf{Feature importance:} Random forest or gradient boosting to rank predictors
+\end{itemize}
+
+\subsection{Objective 4: Alternative Voting System Design}
+
+\textbf{Goal:} Propose a ``fairer'' or ``more exciting'' voting system
+
+\textbf{Ideas to Explore:}
+
+\begin{enumerate}
+    \item \textbf{Weighted combination:}
+    \begin{equation}
+    S_i = \alpha \cdot P_i^{J} + (1-\alpha) \cdot P_i^{F}
+    \end{equation}
+    Optimize $\alpha$ to balance skill recognition vs. fan engagement
+    
+    \item \textbf{Momentum-adjusted scoring:}
+    \begin{equation}
+    S_i^{(w)} = P_i^{J} + P_i^{F} + \gamma \cdot \Delta_i^{(w)}
+    \end{equation}
+    where $\Delta_i^{(w)} = \text{Score}_i^{(w)} - \text{Score}_i^{(w-1)}$ rewards improvement
+    
+    \item \textbf{Elimination protection:} Top performer each week is immune
+    
+    \item \textbf{Ranked-choice voting:} Fans rank top 3, instant runoff
+    
+    \item \textbf{Skill-tiered voting:} Fan votes weighted by judge score bracket
+\end{enumerate}
+
+\subsection{Objective 5: Producer Memo}
+
+\textbf{Key Recommendations to Include:}
+\begin{enumerate}
+    \item Rank vs. percent method tradeoffs
+    \item When to use ``judges choose from bottom two''
+    \item Balancing competition integrity with entertainment value
+    \item Managing controversial outcomes
+\end{enumerate}
+
+%==============================================================================
+\section{Appendix: Data Summary}
+%==============================================================================
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\toprule
+\textbf{Statistic} & \textbf{Value} \\
+\midrule
+Total contestants & 421 \\
+Seasons covered & 1--34 \\
+Fan vote estimates generated & 2,067 \\
+Unique pro dancers & 42 \\
+Weeks with data & 11 (maximum per season) \\
+Judge score columns & 44 \\
+\bottomrule
+\end{tabular}
+\caption{Dataset summary statistics}
+\end{table}
+
+\subsection{Voting Method by Season}
+
+\begin{equation}
+\text{Method}(s) = \begin{cases}
+\text{Rank-based} & \text{if } s \in \{1, 2\} \cup \{28, 29, \ldots, 34\} \\
+\text{Percent-based} & \text{if } s \in \{3, 4, \ldots, 27\}
+\end{cases}
+\end{equation}
+
+%==============================================================================
+\section{References}
+%==============================================================================
+
+\begin{enumerate}
+    \item COMAP MCM 2026 Problem C: ``Data with the Stars''
+    \item Diamond, S., \& Boyd, S. (2016). CVXPY: A Python-embedded modeling language for convex optimization. \textit{Journal of Machine Learning Research}.
+    \item SciPy documentation: \texttt{scipy.stats.rankdata}
+\end{enumerate}
+
+\end{document}

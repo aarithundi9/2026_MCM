@@ -1,0 +1,462 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+
+% Custom colors
+\definecolor{dwtsblue}{RGB}{70,130,180}
+\definecolor{dwtscoral}{RGB}{255,127,80}
+\definecolor{warnorange}{RGB}{255,165,0}
+
+% Page style
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{MCM Problem C 2026}
+\lhead{Objective 2: Voting Method Comparison}
+\rfoot{Page \thepage}
+
+% Title formatting
+\titleformat{\section}{\Large\bfseries\color{dwtsblue}}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries\color{gray}}{\thesubsection}{1em}{}
+
+\title{\textbf{Dancing with the Stars: Voting Method Comparison} \\ 
+\large MCM Problem C 2026 -- Objective 2 Technical Documentation}
+\author{Team Documentation}
+\date{January 2026}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\newpage
+
+%==============================================================================
+\section{Executive Summary}
+%==============================================================================
+
+This document details our mathematical framework for comparing voting methods used in \textit{Dancing with the Stars} (DWTS). We examined three distinct voting mechanisms:
+
+\begin{enumerate}[label=\arabic*.]
+    \item \textbf{RANK Method} (Seasons 1--2): Sum of judge rank + fan vote rank
+    \item \textbf{PERCENT Method} (Seasons 3--27): Sum of judge percentage + fan vote percentage
+    \item \textbf{RANK+B2 Method} (Seasons 28--34): Judges choose bottom 2, fans save one
+\end{enumerate}
+
+\subsection*{Key Findings}
+\begin{itemize}
+    \item Generated \textbf{counterfactual eliminations} for all 34 seasons under each method
+    \item Computed \textbf{5 novel metrics}: ODS, JFAC, MoS, MSI, USP
+    \item Discovered that \textbf{ODS = 0 for all rank-based seasons} (S1-2, S28-34) -- a methodological concern
+    \item Found \textbf{negative Judge-Fan Alignment} across all methods (JFAC $\approx -0.24$ to $-0.33$)
+\end{itemize}
+
+\colorbox{warnorange!20}{\parbox{\dimexpr\linewidth-2\fboxsep}{
+\textbf{Important Caveat:} Our metrics measure \textbf{season characteristics}, not pure method effects. We cannot establish causation because different eras had different voting technologies, celebrity pools, and show formats.
+}}
+
+%==============================================================================
+\section{Problem Formulation}
+%==============================================================================
+
+\subsection{The Counterfactual Problem}
+
+Given fan vote estimates from Objective 1, we ask: \textit{What would have happened if DWTS had used a different voting method?}
+
+This requires:
+\begin{enumerate}
+    \item Applying each voting method's elimination rule to all seasons
+    \item Computing divergence metrics between method outcomes
+    \item Analyzing which method favors fan votes vs. judge scores
+\end{enumerate}
+
+\subsection{Voting Methods}
+
+\subsubsection{Method 1: Rank-Based (RANK)}
+
+Combined score via rank addition (higher rank = worse):
+\begin{equation}
+S_i^{rank} = R_i^{J} + R_i^{F}
+\end{equation}
+where $R_i^{J} = \text{rank}(-J_i)$ and $R_i^{F} = \text{rank}(-F_i)$.
+
+\textbf{Elimination rule:} $\displaystyle e^{rank} = \arg\max_i S_i^{rank}$
+
+\subsubsection{Method 2: Percent-Based (PERCENT)}
+
+Combined score via percentage addition:
+\begin{equation}
+S_i^{pct} = P_i^{J} + P_i^{F} = \frac{J_i}{\sum_j J_j} + \frac{F_i}{\sum_j F_j}
+\end{equation}
+
+\textbf{Elimination rule:} $\displaystyle e^{pct} = \arg\min_i S_i^{pct}$
+
+\subsubsection{Method 3: Judges' Bottom 2 (RANK+B2)}
+
+Two-step process:
+\begin{enumerate}
+    \item Identify bottom 2 by combined rank: $B_2 = \arg\text{top2}_i(R_i^J + R_i^F)$
+    \item Judges choose elimination from $B_2$ (we assume they eliminate lower judge scorer)
+\end{enumerate}
+
+\textbf{Elimination rule:} $\displaystyle e^{B2} = \arg\min_{i \in B_2} J_i$
+
+%==============================================================================
+\section{Novel Metrics}
+%==============================================================================
+
+\subsection{Outcome Divergence Score (ODS)}
+
+The fraction of elimination weeks where methods produce different outcomes:
+\begin{equation}
+\text{ODS}_{season} = \frac{1}{W} \sum_{w=1}^{W} \mathbf{1}[e^{rank}_w \neq e^{pct}_w]
+\end{equation}
+
+\subsubsection{Empirical Results}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lcc}
+\toprule
+\textbf{Actual Method} & \textbf{Mean ODS} & \textbf{Range} \\
+\midrule
+RANK (S1--2) & 0.000 & [0.0, 0.0] \\
+PERCENT (S3--27) & 0.373 & [0.0, 0.67] \\
+RANK+B2 (S28--34) & 0.000 & [0.0, 0.0] \\
+\bottomrule
+\end{tabular}
+\caption{ODS by actual voting method used}
+\end{table}
+
+\colorbox{warnorange!20}{\parbox{\dimexpr\linewidth-2\fboxsep}{
+\textbf{Methodological Concern:} ODS = 0 for \textbf{all 9 rank-based seasons} (S1-2, S28-34). This is suspicious and suggests our counterfactual simulation may have issues with these eras, OR that these seasons had unusually high judge-fan alignment.
+}}
+
+\subsection{Judge-Fan Alignment Coefficient (JFAC)}
+
+Spearman rank correlation between judge rankings and fan vote rankings:
+\begin{equation}
+\text{JFAC}_w = \rho_s(R^J_w, R^F_w)
+\end{equation}
+
+Range: $[-1, 1]$, where:
+\begin{itemize}
+    \item $+1$ = perfect alignment (fans vote exactly as judges score)
+    \item $0$ = no correlation
+    \item $-1$ = perfect anti-alignment (fans prefer low scorers)
+\end{itemize}
+
+\subsubsection{Empirical Results}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lcc}
+\toprule
+\textbf{Method Era} & \textbf{Mean JFAC} & \textbf{95\% CI} \\
+\midrule
+RANK (S1--2) & $-0.309$ & $[-0.45, -0.17]$ \\
+PERCENT (S3--27) & $-0.238$ & $[-0.31, -0.17]$ \\
+RANK+B2 (S28--34) & $-0.331$ & $[-0.42, -0.24]$ \\
+\bottomrule
+\end{tabular}
+\caption{JFAC by voting method era}
+\end{table}
+
+\textbf{Key Insight:} JFAC is \textbf{negative for all eras}, indicating that fans consistently vote differently from judges (slightly favoring lower-scoring contestants). This may reflect:
+\begin{itemize}
+    \item Celebrity popularity independent of dance ability
+    \item Underdog support from audiences
+    \item Regional/demographic voting patterns
+\end{itemize}
+
+\subsection{Fan Vote Leverage Index (FVLI)}
+
+The sensitivity of survival probability to fan vote changes:
+\begin{equation}
+\text{FVLI}_i = \frac{\partial P(\text{survive})}{\partial F_i}
+\end{equation}
+
+For the percent method (analytical):
+\begin{equation}
+\text{FVLI}_i^{pct} = \frac{1}{\sum_j F_j}\left(1 - \frac{F_i}{\sum_j F_j}\right)
+\end{equation}
+
+For the rank method, FVLI depends on vote gaps between contestants (computed empirically via Monte Carlo).
+
+\subsubsection{Scaled FVLI Results}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lcc}
+\toprule
+\textbf{Method} & \textbf{Mean FVLI (scaled)} & \textbf{Interpretation} \\
+\midrule
+RANK & 0.833 & Moderate fan influence \\
+PERCENT & 0.874 & High fan influence \\
+RANK+B2 & 0.899 & Highest fan influence (in bottom 2) \\
+\bottomrule
+\end{tabular}
+\caption{FVLI comparison across methods}
+\end{table}
+
+\subsection{Margin of Safety (MoS)}
+
+How close was the non-eliminated contestant to being eliminated?
+\begin{equation}
+\text{MoS}_w = |S_{e_w} - S_{runner\_up}|
+\end{equation}
+
+Lower MoS indicates more competitive eliminations.
+
+\subsection{Method Sensitivity Index (MSI)}
+
+The minimum vote change required to flip an elimination outcome:
+\begin{equation}
+\text{MSI}_w = \min_{\delta} \left\{ |\delta| : e(F + \delta) \neq e(F) \right\}
+\end{equation}
+
+Higher MSI indicates more robust/stable outcomes.
+
+\subsection{Underdog Survival Probability (USP)}
+
+Probability that the lowest judge scorer survives elimination:
+\begin{equation}
+\text{USP} = \frac{1}{W}\sum_{w=1}^{W} \mathbf{1}[\text{lowest judge scorer}_w \text{ survives}]
+\end{equation}
+
+Higher USP indicates the method is more forgiving to poor performers (fans can ``save'' them).
+
+%==============================================================================
+\section{Counterfactual Analysis}
+%==============================================================================
+
+\subsection{Methodology}
+
+For each elimination week across all 34 seasons:
+\begin{enumerate}
+    \item Apply RANK elimination rule: Find $e^{rank} = \arg\max_i(R_i^J + R_i^F)$
+    \item Apply PERCENT elimination rule: Find $e^{pct} = \arg\min_i(P_i^J + P_i^F)$
+    \item Apply RANK+B2 elimination rule: Identify bottom 2 by rank, eliminate lower scorer
+    \item Record whether methods agree or disagree
+\end{enumerate}
+
+\subsection{Monte Carlo Uncertainty}
+
+Since fan vote estimates have uncertainty bounds, we run Monte Carlo simulations:
+
+\begin{algorithm}[H]
+\caption{Counterfactual with Uncertainty}
+\begin{algorithmic}[1]
+\Require Fan vote estimates $\hat{F}_i$, bounds $[F_i^{min}, F_i^{max}]$
+\Ensure Disagreement probability $P(\text{disagree})$
+\For{$k = 1$ to $500$ MC samples}
+    \State Sample $F_i \sim \text{Uniform}(F_i^{min}, F_i^{max})$ for all $i$
+    \State Compute $e^{rank}$ and $e^{pct}$ for sampled votes
+    \State $\text{disagree}_k \gets \mathbf{1}[e^{rank} \neq e^{pct}]$
+\EndFor
+\State $P(\text{disagree}) \gets \frac{1}{500}\sum_k \text{disagree}_k$
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{Results Summary}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lccc}
+\toprule
+\textbf{Metric} & \textbf{Point Estimate} & \textbf{MC Mean} & \textbf{MC 95\% CI} \\
+\midrule
+Overall Disagreement Rate & 15.3\% & 18.7\% & [12\%, 25\%] \\
+Mean JFAC when methods agree & 0.42 & -- & -- \\
+Mean JFAC when methods disagree & $-0.15$ & -- & -- \\
+\bottomrule
+\end{tabular}
+\caption{Counterfactual analysis summary statistics}
+\end{table}
+
+%==============================================================================
+\section{Controversial Contestants Case Studies}
+%==============================================================================
+
+We analyzed four controversial contestants who benefited from strong fan voting:
+
+\subsection{Jerry Rice (Season 2)}
+\begin{itemize}
+    \item \textbf{Actual Placement:} 2nd place
+    \item \textbf{Method Used:} RANK
+    \item \textbf{Counterfactual:} Under PERCENT simulation, would have been eliminated earlier in some weeks
+    \item \textbf{Caveat:} Only 2 seasons used pure RANK, limiting comparison power
+\end{itemize}
+
+\subsection{Bristol Palin (Season 11)}
+\begin{itemize}
+    \item \textbf{Actual Placement:} 3rd place
+    \item \textbf{Method Used:} PERCENT
+    \item \textbf{Counterfactual:} Under RANK+B2 simulation, survived fewer weeks
+    \item \textbf{Context:} Political fan mobilization during 2010 election cycle
+\end{itemize}
+
+\subsection{Bobby Bones (Season 27)}
+\begin{itemize}
+    \item \textbf{Actual Placement:} Winner
+    \item \textbf{Method Used:} PERCENT
+    \item \textbf{Pattern:} Consistently high fan rankings despite lower judge scores
+    \item \textbf{Context:} Large radio audience provided voting base
+\end{itemize}
+
+\subsection{Billy Ray Cyrus (Season 4)}
+\begin{itemize}
+    \item \textbf{Actual Placement:} 5th place
+    \item \textbf{Method Used:} PERCENT
+    \item \textbf{Pattern:} Country music fanbase provided support but couldn't sustain advancement
+\end{itemize}
+
+\colorbox{warnorange!20}{\parbox{\dimexpr\linewidth-2\fboxsep}{
+\textbf{Limitation:} These are counterfactual \textbf{simulations}, not causal analyses. Fan voting behavior would likely change under different rules, and we cannot isolate method effects from era/technology/culture changes.
+}}
+
+%==============================================================================
+\section{Judges' Bottom 2 Rule Analysis}
+%==============================================================================
+
+\subsection{Rule Description}
+
+Starting in Season 28, DWTS adopted a hybrid rule:
+\begin{enumerate}
+    \item Judges and fans combine to identify bottom 2 (by rank sum)
+    \item Judges then choose which of the bottom 2 to eliminate
+\end{enumerate}
+
+This gives judges a ``veto'' on the final elimination decision.
+
+\subsection{Simulation Results}
+
+We simulated applying the B2 rule to all 34 seasons:
+
+\begin{itemize}
+    \item \textbf{Outcome Difference Rate:} In approximately 20\% of weeks, B2 produces a different elimination than pure PERCENT
+    \item \textbf{Pattern:} Differences are larger when the score gap in the bottom 2 is large
+    \item \textbf{Mechanical Effect:} B2 tends to eliminate the lower judge scorer by construction
+\end{itemize}
+
+\subsection{Historical Context}
+
+The B2 rule was adopted partly in response to controversial outcomes:
+\begin{itemize}
+    \item Bristol Palin (S11) advanced despite lower judge scores
+    \item Bobby Bones (S27) won despite consistent criticism from judges
+\end{itemize}
+
+The rule represents a compromise: fans have influence, but judges get final say in close calls.
+
+%==============================================================================
+\section{Methodological Limitations}
+%==============================================================================
+
+\subsection{Confounding Factors}
+
+We cannot causally attribute outcome differences to voting methods because:
+\begin{enumerate}
+    \item \textbf{Temporal Confounding:} Different eras had different voting technologies (phone, SMS, online, app)
+    \item \textbf{Celebrity Variation:} The popularity and skill mix of contestants varies by season
+    \item \textbf{Format Evolution:} Show format, episode length, and elimination timing changed over 34 seasons
+    \item \textbf{Sample Size:} Only 2 seasons (S1-2) used pure RANK method
+\end{enumerate}
+
+\subsection{The ODS = 0 Problem}
+
+Our finding that ODS = 0 for all rank-based seasons is suspicious. Possible explanations:
+\begin{enumerate}
+    \item \textbf{Data Issue:} Our fan vote estimates for S1-2 and S28-34 may be overly constrained
+    \item \textbf{True Pattern:} These eras genuinely had higher judge-fan alignment
+    \item \textbf{Method Artifact:} The rank method may compress differences in ways that mask divergence
+\end{enumerate}
+
+\subsection{Recommended Interpretation}
+
+Readers should interpret our metrics as \textbf{descriptive statistics of different eras}, not as causal effects of voting methods. The question ``Which method is better?'' cannot be answered purely from observational data.
+
+%==============================================================================
+\section{Synthesis and Recommendations}
+%==============================================================================
+
+\subsection{Method Comparison Summary}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lccc}
+\toprule
+\textbf{Criterion} & \textbf{RANK} & \textbf{PERCENT} & \textbf{RANK+B2} \\
+\midrule
+Fan Influence (FVLI) & 0.833 & 0.874 & 0.899 \\
+Judge-Fan Alignment (JFAC) & $-0.309$ & $-0.238$ & $-0.331$ \\
+Underdog Survival (USP) & Higher & Moderate & Depends on judges \\
+Stability (MSI) & High & Moderate & High \\
+\bottomrule
+\end{tabular}
+\caption{Method comparison across key metrics}
+\end{table}
+
+\subsection{Scenario-Based Recommendations}
+
+Based on our analysis (with caveats acknowledged):
+
+\begin{enumerate}
+    \item \textbf{If prioritizing skill (judge agreement):} RANK+B2 gives judges final say in close calls
+    \item \textbf{If prioritizing fan engagement:} PERCENT method has highest fan leverage for non-bottom-2 contestants
+    \item \textbf{If prioritizing controversy avoidance:} RANK+B2 reduces extreme upset scenarios
+    \item \textbf{If prioritizing simplicity:} RANK method is easiest to explain and most robust to small changes
+\end{enumerate}
+
+\subsection{Final Caveat}
+
+\colorbox{warnorange!20}{\parbox{\dimexpr\linewidth-2\fboxsep}{
+Our analysis computes \textbf{what would have happened under different rules given observed data}, but it cannot predict how fan behavior would change under different incentive structures. A proper causal analysis would require randomized experiments, which are not available in this context.
+}}
+
+%==============================================================================
+\section{Data Files Generated}
+%==============================================================================
+
+The following files were created by our Objective 2 analysis:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\toprule
+\textbf{File} & \textbf{Description} \\
+\midrule
+\texttt{counterfactual\_history.csv} & Point estimates for all weeks \\
+\texttt{counterfactual\_history\_with\_uncertainty.csv} & MC uncertainty bounds \\
+\texttt{ods\_by\_season.csv} & ODS scores by season \\
+\texttt{fvli\_analysis.csv} & Fan vote leverage metrics \\
+\texttt{breakeven\_analysis.csv} & Break-even fan share analysis \\
+\texttt{msi\_analysis.csv} & Method sensitivity index \\
+\texttt{judges\_b2\_simulation.csv} & B2 rule simulation results \\
+\texttt{controversial\_counterfactual\_summary.csv} & Case study summaries \\
+\bottomrule
+\end{tabular}
+\caption{Output files from Objective 2 analysis}
+\end{table}
+
+%==============================================================================
+\section{References}
+%==============================================================================
+
+\begin{enumerate}
+    \item Spearman, C. (1904). ``The proof and measurement of association between two things.'' \textit{American Journal of Psychology}, 15(1), 72-101.
+    \item DWTS Official Scoring Rules (various seasons), ABC Entertainment.
+    \item Objective 1 Documentation: Fan Vote Estimation Model.
+\end{enumerate}
+
+\end{document}

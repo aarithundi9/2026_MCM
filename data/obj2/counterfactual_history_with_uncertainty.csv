@@ -1,0 +1,250 @@
+season,week,n_contestants,actual_method,actual_eliminated,actual_elim_idx,rank_would_eliminate,pct_would_eliminate,b2_rank_would_eliminate,b2_pct_would_eliminate,rank_matches_actual,pct_matches_actual,methods_agree,rank_margin,pct_margin,jfac,p_agree,p_disagree
+1,2,6,rank,Trista Sutter,5,Trista Sutter,Trista Sutter,Trista Sutter,Trista Sutter,True,True,True,3.0,0.05410012991638205,-0.6,1.0,0.0
+1,3,5,rank,Evander Holyfield,2,Evander Holyfield,Evander Holyfield,Evander Holyfield,Evander Holyfield,True,True,True,5.0,0.18118775596008427,0.0,1.0,0.0
+1,4,4,rank,Rachel Hunter,2,Rachel Hunter,Rachel Hunter,Joey McIntyre,Rachel Hunter,True,True,True,1.0,0.10170639730073822,-0.7999999999999999,1.0,0.0
+2,2,9,rank,Tatum O'Neal,0,Tatum O'Neal,Tatum O'Neal,Tatum O'Neal,Tatum O'Neal,True,True,True,6.0,0.06547934410092025,-0.2677847708018314,1.0,0.0
+2,3,8,rank,Giselle Fernandez,5,Giselle Fernandez,Giselle Fernandez,Jerry Rice,Giselle Fernandez,True,True,True,3.5,0.02434008799352902,-0.5422080293008649,0.97,0.030000000000000027
+2,4,7,rank,Master P,5,Master P,Master P,Master P,Master P,True,True,True,6.0,0.1463971436884956,-0.18018749253911182,1.0,0.0
+2,5,6,rank,Tia Carrere,0,Tia Carrere,Tia Carrere,Tia Carrere,Tia Carrere,True,True,True,5.0,0.07964539006959043,0.08571428571428573,1.0,0.0
+2,6,5,rank,George Hamilton,0,George Hamilton,George Hamilton,George Hamilton,George Hamilton,True,True,True,4.0,0.08833380689838621,-0.15811388300841897,1.0,0.0
+2,7,4,rank,Lisa Rinna,0,Lisa Rinna,Lisa Rinna,Jerry Rice,Jerry Rice,True,True,True,2.0,0.029707565114761747,-0.316227766016838,0.694,0.30600000000000005
+3,2,10,percent,Shanna Moakler,6,Harry Hamlin,Shanna Moakler,Sara Evans,Jerry Springer,False,True,False,0.0,0.0010000001339817155,0.3499999999999999,0.424,0.5760000000000001
+3,3,9,percent,Harry Hamlin,0,Harry Hamlin,Harry Hamlin,Harry Hamlin,Emmitt Smith,True,True,True,3.5,0.0010000004591088074,-0.7324056454706991,0.516,0.484
+3,4,8,percent,Vivica A. Fox,0,Vivica A. Fox,Vivica A. Fox,Emmitt Smith,Sara Evans,True,True,True,1.5,0.0010000007373985875,-0.2208963121532172,0.78,0.21999999999999997
+3,5,7,percent,Willa Ford,4,Willa Ford,Willa Ford,Sara Evans,Sara Evans,True,True,True,1.0,0.0010000007391802734,-0.9302605094190635,0.33,0.6699999999999999
+3,7,5,percent,Jerry Springer,4,Monique Coleman,Jerry Springer,Jerry Springer,Jerry Springer,False,True,False,0.0,0.029627929098563655,-1.0,0.84,0.16000000000000003
+3,8,4,percent,Monique Coleman,0,Monique Coleman,Monique Coleman,Monique Coleman,Monique Coleman,True,True,True,3.5,0.004595065072538818,0.316227766016838,0.804,0.19599999999999995
+4,2,11,percent,Paulina Porizkova,6,Shandi Finnessey,Paulina Porizkova,Shandi Finnessey,Clyde Drexler,False,True,False,1.5,0.0010000008364918767,-0.3607358754006348,0.61,0.39
+4,3,10,percent,Shandi Finnessey,5,John Ratzenberger,Shandi Finnessey,John Ratzenberger,Clyde Drexler,False,True,False,1.0,0.0010000004537952245,0.3667130715166724,0.562,0.43799999999999994
+4,4,9,percent,Leeza Gibbons,8,Leeza Gibbons,Leeza Gibbons,Leeza Gibbons,Clyde Drexler,True,True,True,3.5,0.00100000084343968,-0.01687778737259426,0.88,0.12
+4,5,8,percent,Clyde Drexler,2,Clyde Drexler,Clyde Drexler,Clyde Drexler,Clyde Drexler,True,True,True,4.0,0.022727834485298415,0.5000000000000001,0.962,0.038000000000000034
+4,6,7,percent,Heather Mills,4,Heather Mills,Heather Mills,Heather Mills,John Ratzenberger,True,True,True,2.0,0.0010000019717227304,-0.3090909090909091,0.728,0.272
+4,7,6,percent,John Ratzenberger,0,John Ratzenberger,John Ratzenberger,Billy Ray Cyrus,Billy Ray Cyrus,True,True,True,4.0,0.001000000183401628,-0.38810293211724584,0.878,0.122
+4,8,5,percent,Billy Ray Cyrus,3,Laila Ali,Billy Ray Cyrus,Laila Ali,Billy Ray Cyrus,False,True,False,2.0,0.03585594220061411,-0.6,0.904,0.09599999999999997
+4,9,4,percent,Ian Ziering,0,Ian Ziering,Ian Ziering,Ian Ziering,Ian Ziering,True,True,True,3.5,0.004227737737726722,0.316227766016838,0.704,0.29600000000000004
+5,2,11,percent,Albert Reed,5,Albert Reed,Albert Reed,Floyd Mayweather Jr. ,Wayne Newton,True,True,True,2.5,0.0010000000275514065,0.0,0.786,0.21399999999999997
+5,3,10,percent,Wayne Newton,7,Wayne Newton,Wayne Newton,Wayne Newton,Wayne Newton,True,True,True,10.0,0.008368721395797474,-0.43749999999999994,0.958,0.04200000000000004
+5,4,9,percent,Floyd Mayweather Jr. ,4,Floyd Mayweather Jr. ,Floyd Mayweather Jr. ,Floyd Mayweather Jr. ,Mark Cuban,True,True,True,4.0,0.0010000005253919808,0.3571428571428571,0.912,0.08799999999999997
+5,5,8,percent,Mark Cuban,7,Mark Cuban,Mark Cuban,Marie Osmond,Mark Cuban,True,True,True,7.0,0.0010000599790567222,-0.41212878113068263,0.876,0.124
+5,6,7,percent,Sabrina Bryan,2,Sabrina Bryan,Sabrina Bryan,Marie Osmond,Jane Seymour,True,True,True,3.5,0.0010000023516544831,-0.7207499701564473,0.594,0.406
+5,7,6,percent,Jane Seymour,1,Helio Castroneves,Jane Seymour,Cameron Mathison,Jane Seymour,False,True,False,0.5,0.003204593573437109,-0.05797710356524484,0.844,0.15600000000000003
+5,8,5,percent,Cameron Mathison,0,Cameron Mathison,Cameron Mathison,Marie Osmond,Marie Osmond,True,True,True,2.0,0.0010000010313915841,-0.7,0.774,0.22599999999999998
+5,9,4,percent,Jennie Garth,0,Jennie Garth,Jennie Garth,Marie Osmond,Marie Osmond,True,True,True,2.0,0.0010000016477396678,-0.3333333333333334,0.836,0.16400000000000003
+6,2,12,percent,Monica Seles,8,Steve Guttenberg,Monica Seles,Steve Guttenberg,Monica Seles,False,True,False,2.0,0.0038908915661479415,0.5335689045936396,0.886,0.11399999999999999
+6,3,10,percent,Steve Guttenberg,1,Steve Guttenberg,Steve Guttenberg,Adam Carolla,Marissa Jaret Winokur,True,True,True,3.5,0.0010000001414384174,0.1818905871137,0.788,0.21199999999999997
+6,4,9,percent,Adam Carolla,7,Priscilla Presley,Adam Carolla,Priscilla Presley,Adam Carolla,False,True,False,3.5,0.013330209314953767,0.3691293107396958,0.918,0.08199999999999996
+6,5,8,percent,Priscilla Presley,1,Jason Taylor,Priscilla Presley,Marissa Jaret Winokur,Priscilla Presley,False,True,False,0.5,0.0051010607197576885,-0.8485004317396408,0.878,0.122
+6,6,7,percent,Marlee Matlin,1,Marlee Matlin,Marlee Matlin,Shannon Elizabeth,Marlee Matlin,True,True,True,0.0,0.016666646167975585,0.8909090909090909,0.918,0.08199999999999996
+6,7,6,percent,Shannon Elizabeth,1,Shannon Elizabeth,Shannon Elizabeth,Cristian de la Fuente,Cristian de la Fuente,True,True,True,3.5,0.001000000253827682,-0.550782483869826,0.734,0.266
+6,8,5,percent,Mario,4,Jason Taylor,Mario,Jason Taylor,Marissa Jaret Winokur,False,True,False,0.0,0.001000005409210969,-0.19999999999999998,0.416,0.5840000000000001
+6,9,4,percent,Marissa Jaret Winokur,1,Cristian de la Fuente,Marissa Jaret Winokur,Jason Taylor,Marissa Jaret Winokur,False,True,False,0.0,0.013634141217594209,-1.0,0.806,0.19399999999999995
+7,2,11,percent,Kim Kardashian,8,Kim Kardashian,Kim Kardashian,Kim Kardashian,Cloris Leachman,True,True,True,3.0,0.0010000004575246024,-0.02320191859957102,0.836,0.16400000000000003
+7,4,9,percent,Rocco DiSpirito,7,Rocco DiSpirito,Rocco DiSpirito,Rocco DiSpirito,Rocco DiSpirito,True,True,True,2.0,0.00985228952969136,0.11255516721664278,0.93,0.06999999999999995
+7,5,8,percent,Toni Braxton,5,Toni Braxton,Toni Braxton,Susan Lucci,Cloris Leachman,True,True,True,1.0,0.0010000007680354694,-0.41212878113068263,0.666,0.33399999999999996
+7,6,7,percent,Cloris Leachman,0,Cloris Leachman,Cloris Leachman,Cloris Leachman,Cloris Leachman,True,True,True,1.0,0.0375000134864735,-0.9636363636363636,0.908,0.09199999999999997
+7,7,6,percent,Susan Lucci,0,Susan Lucci,Susan Lucci,Warren Sapp,Warren Sapp,True,True,True,3.0,0.0010000012160157334,-0.6470588235294118,0.762,0.238
+7,8,5,percent,Maurice Greene,1,Maurice Greene,Maurice Greene,Maurice Greene,Maurice Greene,True,True,True,2.5,0.0010000032907473422,0.20519567041703085,0.866,0.134
+7,9,4,percent,Cody Linley,0,Brooke Burke,Cody Linley,Brooke Burke,Cody Linley,False,True,False,0.5,0.014923524471912919,-0.9486832980505139,0.846,0.15400000000000003
+8,2,13,percent,Belinda Carlisle,7,Belinda Carlisle,Belinda Carlisle,Belinda Carlisle,Steve-O,True,True,True,5.5,0.0010000002424712662,-0.5244077624769422,0.556,0.44399999999999995
+8,3,12,percent,Denise Richards,1,Denise Richards,Denise Richards,Steve-O,Steve Wozniak,True,True,True,0.0,0.0010000002077336645,0.5203613176989095,0.88,0.12
+8,4,11,percent,Steve Wozniak,5,David Alan Grier,Steve Wozniak,Lawrence Taylor,Steve Wozniak,False,True,False,0.0,0.012396641007171444,-0.27522935779816515,0.914,0.08599999999999997
+8,5,9,percent,David Alan Grier,1,David Alan Grier,David Alan Grier,Ty Murray,Steve-O,True,True,True,0.0,0.0010000020719058422,-0.411764705882353,0.724,0.276
+8,6,8,percent,Steve-O,6,Gilles Marini,Steve-O,Steve-O,Steve-O,False,True,False,0.0,0.01075280944341886,-0.7108433734939759,0.94,0.06000000000000005
+8,7,7,percent,Lawrence Taylor,1,Lawrence Taylor,Lawrence Taylor,Lawrence Taylor,Lawrence Taylor,True,True,True,2.0,0.016483573759560832,1.0,0.928,0.07199999999999995
+8,8,6,percent,Chuck Wicks,3,Chuck Wicks,Chuck Wicks,Melissa Rycroft,Melissa Rycroft,True,True,True,4.0,0.0010000002015466691,-0.411764705882353,0.762,0.238
+8,9,5,percent,Lil' Kim,3,Lil' Kim,Lil' Kim,Ty Murray,Ty Murray,True,True,True,3.0,0.001000003515786163,-0.36842105263157904,0.684,0.31599999999999995
+8,10,4,percent,Ty Murray,1,Melissa Rycroft,Ty Murray,Melissa Rycroft,Ty Murray,False,True,False,2.0,0.031962984479645073,-0.19999999999999998,0.802,0.19799999999999995
+9,2,14,percent,Kathy Ireland,8,Kathy Ireland,Kathy Ireland,Kathy Ireland,Kathy Ireland,True,True,True,5.0,0.001000013329991889,0.6115707464369852,0.876,0.124
+9,3,13,percent,Debi Mazar,0,Debi Mazar,Debi Mazar,Chuck Liddell,Michael Irvin,True,True,True,1.0,0.0010000019544828542,0.20165822799446262,0.832,0.16800000000000004
+9,4,11,percent,Chuck Liddell,2,Chuck Liddell,Chuck Liddell,Chuck Liddell,Louie Vito,True,True,True,6.0,0.001000009391688761,-0.2903225806451613,0.796,0.20399999999999996
+9,5,10,percent,Natalie Coughlin,2,Natalie Coughlin,Natalie Coughlin,Louie Vito,Michael Irvin,True,True,True,1.0,0.0010000001064180974,0.43213169853419553,0.818,0.18200000000000005
+9,6,9,percent,Melissa Joan Hart,0,Melissa Joan Hart,Melissa Joan Hart,Melissa Joan Hart,Michael Irvin,True,True,True,2.0,0.0010000013110862682,0.13333333333333333,0.916,0.08399999999999996
+9,7,7,percent,Mark Dacascos,0,Mark Dacascos,Mark Dacascos,Mark Dacascos,Mark Dacascos,True,True,True,1.5,0.011396016064839865,-0.8829187134416479,0.92,0.07999999999999996
+9,8,5,percent,Aaron Carter,1,Aaron Carter,Aaron Carter,Aaron Carter,Aaron Carter,True,True,True,2.5,0.0010000104670348509,0.20519567041703085,0.862,0.138
+9,9,4,percent,Joanna Krupa,0,Joanna Krupa,Joanna Krupa,Kelly Osbourne,Donny Osmond,True,True,True,0.0,0.0010000021267451698,-0.39999999999999997,0.736,0.264
+10,2,11,percent,Shannen Doherty,1,Chad Ochocinco,Shannen Doherty,Chad Ochocinco,Buzz Aldrin,False,True,False,1.5,0.0010000001076652665,-0.3416865356836539,0.502,0.498
+10,3,10,percent,Buzz Aldrin,2,Jake Pavelka,Buzz Aldrin,Jake Pavelka,Buzz Aldrin,False,True,False,1.0,0.009852436368741113,-0.6293109729255164,0.954,0.04600000000000004
+10,4,9,percent,Aiden Turner,0,Aiden Turner,Aiden Turner,Kate Gosselin,Kate Gosselin,True,True,True,7.0,0.0010000002704295685,-0.5333333333333333,0.948,0.052000000000000046
+10,5,8,percent,Kate Gosselin,6,Niecy Nash,Kate Gosselin,Niecy Nash,Kate Gosselin,False,True,False,0.0,0.01733979621515158,0.7590361445783131,0.914,0.08599999999999997
+10,6,7,percent,Jake Pavelka,6,Niecy Nash,Jake Pavelka,Jake Pavelka,Jake Pavelka,False,True,False,1.0,0.004783827141564001,0.8928571428571429,0.884,0.11599999999999999
+10,7,6,percent,Pamela Anderson,3,Pamela Anderson,Pamela Anderson,Niecy Nash,Niecy Nash,True,True,True,3.5,0.0010000047223962527,-0.5373732906238788,0.684,0.31599999999999995
+10,8,5,percent,Niecy Nash,0,Erin Andrews,Niecy Nash,Erin Andrews,Niecy Nash,False,True,False,0.5,0.007904373960948508,-0.9746794344808963,0.816,0.18400000000000005
+10,9,4,percent,Chad Ochocinco,0,Chad Ochocinco,Chad Ochocinco,Chad Ochocinco,Chad Ochocinco,True,True,True,2.0,0.017700085483109917,1.0,0.77,0.22999999999999998
+11,2,11,percent,Michael Bolton,6,Florence Henderson,Michael Bolton,The Situation,Michael Bolton,False,True,False,3.0,0.027148440476513325,0.2610729703525981,0.97,0.030000000000000027
+11,3,10,percent,Margaret Cho,5,Florence Henderson,Margaret Cho,Bristol Palin,Margaret Cho,False,True,False,0.0,0.004524722057527908,0.39622641509433965,0.904,0.09599999999999997
+11,4,9,percent,The Situation,6,Bristol Palin,The Situation,Bristol Palin,The Situation,False,True,False,2.0,0.011168687233335722,0.39999999999999997,0.954,0.04600000000000004
+11,5,8,percent,Florence Henderson,0,Florence Henderson,Florence Henderson,Kyle Massey,Bristol Palin,True,True,True,0.0,0.0010000003990235373,-0.15662650602409636,0.89,0.10999999999999999
+11,6,7,percent,Audrina Patridge,5,Bristol Palin,Audrina Patridge,Bristol Palin,Kurt Warner,False,True,False,2.0,0.0010000002644848793,-0.7500000000000002,0.332,0.6679999999999999
+11,7,6,percent,Rick Fox,2,Rick Fox,Rick Fox,Rick Fox,Bristol Palin,True,True,True,2.0,0.001000001193107669,-0.4705882352941177,0.572,0.42800000000000005
+11,8,5,percent,Kurt Warner,2,Kurt Warner,Kurt Warner,Bristol Palin,Bristol Palin,True,True,True,3.0,0.0010000224541479863,-0.36842105263157904,0.886,0.11399999999999999
+11,9,4,percent,Brandy,2,Brandy,Brandy,Bristol Palin,Bristol Palin,True,True,True,2.0,0.0010000044691871324,-0.39999999999999997,0.872,0.128
+12,2,11,percent,Mike Catherwood,7,Mike Catherwood,Mike Catherwood,Wendy Williams,Mike Catherwood,True,True,True,9.5,0.001000005586107633,-0.5788379504676809,0.902,0.09799999999999998
+12,3,10,percent,Wendy Williams,8,Kendra Wilkinson,Wendy Williams,Chelsea Kane,Wendy Williams,False,True,False,1.0,0.023364096148184743,-0.8959035113581598,0.948,0.052000000000000046
+12,4,9,percent,Sugar Ray Leonard,4,Sugar Ray Leonard,Sugar Ray Leonard,Sugar Ray Leonard,Kendra Wilkinson,True,True,True,2.0,0.00100000007743975,0.37391304347826093,0.878,0.122
+12,5,8,percent,Petra Nemcova,5,Petra Nemcova,Petra Nemcova,Petra Nemcova,Petra Nemcova,True,True,True,3.0,0.0010000120861170525,-0.20519567041703085,0.954,0.04600000000000004
+12,6,7,percent,Chris Jericho,4,Chris Jericho,Chris Jericho,Chris Jericho,Chris Jericho,True,True,True,1.0,0.011111111602337798,-0.9636363636363636,0.854,0.14600000000000002
+12,7,6,percent,Kendra Wilkinson,5,Kendra Wilkinson,Kendra Wilkinson,Kendra Wilkinson,Kirstie Alley,True,True,True,2.0,0.0010000021753189259,-0.4545454545454545,0.54,0.45999999999999996
+12,8,5,percent,Romeo,4,Romeo,Romeo,Romeo,Ralph Macchio,True,True,True,2.0,0.0010000014012393477,0.0,0.72,0.28
+12,9,4,percent,Ralph Macchio,0,Ralph Macchio,Ralph Macchio,Ralph Macchio,Ralph Macchio,True,True,True,4.0,0.025540510479690748,0.19999999999999998,0.81,0.18999999999999995
+13,2,11,percent,Elisabetta Canalis,0,Elisabetta Canalis,Elisabetta Canalis,Nancy Grace,Chaz Bono,True,True,True,4.5,0.0010000004652904737,-0.8801973812670458,0.358,0.642
+13,3,10,percent,Kristin Cavallari,5,Carson Kressley,Kristin Cavallari,Carson Kressley,Chaz Bono,False,True,False,1.5,0.001000000140410462,-0.08205200346370936,0.434,0.5660000000000001
+13,4,9,percent,Chynna Phillips,4,Chynna Phillips,Chynna Phillips,Chynna Phillips,Carson Kressley,True,True,True,3.0,0.0010000004507492444,-0.3162855297886262,0.776,0.22399999999999998
+13,5,8,percent,Carson Kressley,4,David Arquette,Carson Kressley,Nancy Grace,Carson Kressley,False,True,False,0.5,0.010637737119151863,-0.9939576486092934,0.862,0.138
+13,6,7,percent,Chaz Bono,4,Hope Solo,Chaz Bono,Chaz Bono,Chaz Bono,False,True,False,0.0,0.006023913471335296,0.9636363636363636,0.946,0.05400000000000005
+13,7,6,percent,David Arquette,0,David Arquette,David Arquette,Nancy Grace,Nancy Grace,True,True,True,4.0,0.001000000137861612,-0.4285714285714286,0.754,0.246
+13,8,5,percent,Nancy Grace,3,Ricki Lake,Nancy Grace,Nancy Grace,Nancy Grace,False,True,False,0.0,0.027026276282674178,-1.0,0.844,0.15600000000000003
+13,9,4,percent,Hope Solo,2,J.R. Martinez,Hope Solo,J.R. Martinez,Hope Solo,False,True,False,2.0,0.029537475930200008,-0.19999999999999998,0.86,0.14
+14,2,12,percent,Martina Navratilova,6,Gladys Knight,Martina Navratilova,Gladys Knight,Martina Navratilova,False,True,False,2.0,0.007434267393180011,0.532628694339633,0.96,0.040000000000000036
+14,3,11,percent,Jack Wagner,1,Jack Wagner,Jack Wagner,Jack Wagner,Jack Wagner,True,True,True,5.0,0.0010000038541411183,-0.3187231987336007,0.962,0.038000000000000034
+14,4,10,percent,Sherri Sheperd,1,Sherri Sheperd,Sherri Sheperd,Sherri Sheperd,Gladys Knight,True,True,True,4.0,0.0010000032281891336,0.43613918799432344,0.91,0.08999999999999997
+14,5,9,percent,Gavin DeGraw,5,Gavin DeGraw,Gavin DeGraw,Gavin DeGraw,Gavin DeGraw,True,True,True,8.0,0.008928674206223786,-0.37131132219707375,0.936,0.06399999999999995
+14,6,8,percent,Gladys Knight,5,Gladys Knight,Gladys Knight,Gladys Knight,Gladys Knight,True,True,True,2.0,0.015504896626844955,1.0,0.922,0.07799999999999996
+14,7,7,percent,Jaleel White,1,Jaleel White,Jaleel White,Melissa Gilbert,Melissa Gilbert,True,True,True,5.0,0.0010000005747624052,-0.45454545454545453,0.782,0.21799999999999997
+14,8,6,percent,Roshon Fegan,1,Roshon Fegan,Roshon Fegan,Maria Menounos,Melissa Gilbert,True,True,True,1.0,0.001000000307979254,-0.9411764705882354,0.3,0.7
+14,9,4,percent,Maria Menounos,3,William Levy,Maria Menounos,Katherine Jenkins,Katherine Jenkins,False,True,False,0.0,0.0010000026812847507,-1.0,0.24,0.76
+15,2,12,percent,Joey Fatone,8,Joey Fatone,Joey Fatone,Bristol Palin,Bristol Palin,True,True,True,7.0,0.0010000004318645728,-0.8042440616120817,0.522,0.478
+15,3,11,percent,Helio Castroneves,7,Emmitt Smith,Helio Castroneves,Emmitt Smith,Bristol Palin,False,True,False,1.5,0.0010000000710573276,-0.3168282549153425,0.256,0.744
+15,4,9,percent,Bristol Palin,7,Bristol Palin,Bristol Palin,Bristol Palin,Kirstie Alley,True,True,True,2.0,0.001000000686660646,0.39495798319327735,0.828,0.17200000000000004
+15,6,8,percent,Sabrina Bryan,1,Shawn Johnson,Sabrina Bryan,Shawn Johnson,Emmitt Smith,False,True,False,1.5,0.0010000019479945443,-0.8727433012179162,0.144,0.856
+15,8,7,percent,Gilles Marini,0,Shawn Johnson,Gilles Marini,Shawn Johnson,Kirstie Alley,False,True,False,2.5,0.0010000003661174706,-0.5225437283634242,0.132,0.868
+15,9,5,percent,Apolo Anton Ohno,1,Apolo Anton Ohno,Apolo Anton Ohno,Emmitt Smith,Emmitt Smith,True,True,True,2.0,0.001000000633875897,-0.7,0.482,0.518
+16,3,11,percent,Wynonna Judd,7,Andy Dick,Wynonna Judd,Andy Dick,Wynonna Judd,False,True,False,5.5,0.004253734450889973,-0.4083625607839217,0.954,0.04600000000000004
+16,4,10,percent,Lisa Vanderpump,8,Lisa Vanderpump,Lisa Vanderpump,Lisa Vanderpump,Lisa Vanderpump,True,True,True,8.5,0.0010000009277902622,-0.46769452163611186,0.97,0.030000000000000027
+16,5,9,percent,D. L. Hughley,5,D. L. Hughley,D. L. Hughley,D. L. Hughley,D. L. Hughley,True,True,True,3.5,0.0010000002482232206,0.46413915274634215,0.956,0.04400000000000004
+16,6,8,percent,Victor Ortiz,2,Andy Dick,Victor Ortiz,Andy Dick,Victor Ortiz,False,True,False,2.0,0.007955435233879787,0.3233590907165799,0.862,0.138
+16,7,7,percent,Andy Dick,4,Andy Dick,Andy Dick,Andy Dick,Andy Dick,True,True,True,2.0,0.03804349265544732,-0.8928571428571429,0.952,0.04800000000000004
+16,8,6,percent,Sean Lowe,5,Jacoby Jones,Sean Lowe,Ingo Rademacher,Sean Lowe,False,True,False,1.0,0.019292195231698783,-0.028571428571428574,0.852,0.14800000000000002
+16,9,5,percent,Ingo Rademacher,0,Ingo Rademacher,Ingo Rademacher,Kellie Pickler,Ingo Rademacher,True,True,True,0.0,0.014184303369017437,-1.0,0.812,0.18799999999999994
+16,10,4,percent,Alexandra Raisman,1,Alexandra Raisman,Alexandra Raisman,Jacoby Jones,Jacoby Jones,True,True,True,2.0,0.0010000016493784125,-0.316227766016838,0.88,0.12
+17,2,12,percent,Keyshawn Johnson,6,Keyshawn Johnson,Keyshawn Johnson,Keyshawn Johnson,Bill Nye,True,True,True,2.0,0.0010000011882731474,0.5302491103202847,0.9,0.09999999999999998
+17,3,11,percent,Bill Nye,10,Bill Nye,Bill Nye,Bill Nye,Bill Nye,True,True,True,2.5,0.0010000060457847626,0.5339593097094862,0.968,0.03200000000000003
+17,4,10,percent,Valerie Harper,0,Brant Daugherty,Valerie Harper,Brant Daugherty,Valerie Harper,False,True,False,0.0,0.012657795716100873,0.3922322702763681,0.956,0.04400000000000004
+17,5,9,percent,Christina Milian,6,Brant Daugherty,Christina Milian,Brant Daugherty,Leah Remini,False,True,False,0.0,0.001000000107101079,-0.6811357292443891,0.168,0.832
+17,7,8,percent,"Nicole ""Snooki"" Polizzi",6,Leah Remini,"Nicole ""Snooki"" Polizzi",Leah Remini,Bill Engvall,False,True,False,0.5,0.0010000012641320777,-0.2195285199793807,0.594,0.406
+17,8,7,percent,Brant Daugherty,0,Brant Daugherty,Brant Daugherty,Bill Engvall,Bill Engvall,True,True,True,4.0,0.0010000002438684819,-0.6238794669049378,0.802,0.19799999999999995
+17,9,6,percent,Elizabeth Berkley Lauren,0,Amber Riley,Elizabeth Berkley Lauren,Amber Riley,Bill Engvall,False,True,False,2.0,0.0010000001443892792,-0.23190841426097936,0.314,0.6859999999999999
+17,10,5,percent,Leah Remini,0,Leah Remini,Leah Remini,Bill Engvall,Bill Engvall,True,True,True,3.0,0.0010000003155191117,-0.39999999999999997,0.886,0.11399999999999999
+17,11,4,percent,Bill Engvall,2,Bill Engvall,Bill Engvall,Bill Engvall,Bill Engvall,True,True,True,4.0,0.02183653454350054,0.19999999999999998,0.818,0.18200000000000005
+18,2,11,percent,Sean Avery,4,Sean Avery,Sean Avery,Drew Carey,Billy Dee Williams,True,True,True,1.5,0.0010000013156937215,0.453565265135969,0.808,0.19199999999999995
+18,5,9,percent,Cody Simpson,7,Cody Simpson,Cody Simpson,Cody Simpson,Drew Carey,True,True,True,2.0,0.0010000000596499248,0.37131132219707375,0.81,0.18999999999999995
+18,6,8,percent,Drew Carey,6,Drew Carey,Drew Carey,Drew Carey,Drew Carey,True,True,True,2.5,0.0010000006842647013,0.41212878113068263,0.898,0.10199999999999998
+18,7,7,percent,NeNe Leakes,6,NeNe Leakes,NeNe Leakes,NeNe Leakes,NeNe Leakes,True,True,True,2.0,0.007905145494419563,-0.8928571428571429,0.846,0.15400000000000003
+18,8,6,percent,Danica McKellar,0,Danica McKellar,Danica McKellar,Meryl Davis,Meryl Davis,True,True,True,1.0,0.001000001782470672,-0.7627700713964739,0.46,0.54
+18,9,5,percent,Charlie White,2,Charlie White,Charlie White,James Maslow,Candace Cameron Bure,True,True,True,1.0,0.0010000078079327457,-0.05129891760425771,0.618,0.382
+18,10,4,percent,James Maslow,0,James Maslow,James Maslow,Candace Cameron Bure,Candace Cameron Bure,True,True,True,2.0,0.0010000000550117183,-0.39999999999999997,0.784,0.21599999999999997
+19,2,12,percent,Tavis Smiley,9,Tavis Smiley,Tavis Smiley,Michael Waltrip,Michael Waltrip,True,True,True,8.5,0.001000000724439537,-0.711007675692476,0.784,0.21599999999999997
+19,3,11,percent,Randy Couture,5,Michael Waltrip,Randy Couture,Michael Waltrip,Randy Couture,False,True,False,1.5,0.005665564294317554,-0.9652205982165422,0.96,0.040000000000000036
+19,4,10,percent,Betsey Johnson,6,Tommy Chong,Betsey Johnson,Tommy Chong,Jonathan Bennett,False,True,False,0.5,0.0010000000895683536,-0.15197638592001614,0.594,0.406
+19,6,9,percent,Jonathan Bennett,1,Michael Waltrip,Jonathan Bennett,Michael Waltrip,Antonio Sabato Jr.,False,True,False,0.5,0.0010000019945902716,-0.09282783054926844,0.462,0.538
+19,7,8,percent,Antonio Sabato Jr.,0,Antonio Sabato Jr.,Antonio Sabato Jr.,Antonio Sabato Jr.,Michael Waltrip,True,True,True,2.0,0.0010000004709271593,0.3333333333333334,0.896,0.10399999999999998
+19,8,7,percent,Michael Waltrip,4,Tommy Chong,Michael Waltrip,Michael Waltrip,Michael Waltrip,False,True,False,5.0,0.016127993916453837,-0.4642857142857144,0.938,0.062000000000000055
+19,9,6,percent,Lea Thompson,0,Lea Thompson,Lea Thompson,Tommy Chong,Tommy Chong,True,True,True,4.0,0.001000000092870823,-0.411764705882353,0.732,0.268
+19,10,5,percent,Tommy Chong,2,Janel Parrish,Tommy Chong,Sadie Robertson,Tommy Chong,False,True,False,0.0,0.03287439344611609,-0.9999999999999999,0.794,0.20599999999999996
+19,11,4,percent,Bethany Mota,2,Janel Parrish,Bethany Mota,Bethany Mota,Bethany Mota,False,True,False,2.0,0.006386877229135446,-0.39999999999999997,0.812,0.18799999999999994
+20,2,12,percent,Redfoo,9,Redfoo,Redfoo,Chris Soules,Chris Soules,True,True,True,4.0,0.0010000001156295624,-0.926470588235294,0.122,0.878
+20,3,11,percent,Charlotte McKinney,7,Charlotte McKinney,Charlotte McKinney,Charlotte McKinney,Charlotte McKinney,True,True,True,2.5,0.0010000007761413188,-0.16018348575867145,0.93,0.06999999999999995
+20,4,10,percent,Michael Sam,5,Michael Sam,Michael Sam,Patti LaBelle,Chris Soules,True,True,True,1.0,0.0010000017578166431,0.006116236550659085,0.75,0.25
+20,5,9,percent,Suzanne Somers,0,Suzanne Somers,Suzanne Somers,Patti LaBelle,Robert Herjavec,True,True,True,0.0,0.0010000019093456547,0.09322368663316892,0.53,0.47
+20,6,8,percent,Patti LaBelle,6,Patti LaBelle,Patti LaBelle,Patti LaBelle,Robert Herjavec,True,True,True,2.5,0.0010000033470115577,-0.10909291265223953,0.744,0.256
+20,7,7,percent,Willow Shields,0,Riker Lynch,Willow Shields,Riker Lynch,Robert Herjavec,False,True,False,0.0,0.0010000007145212764,-0.5137830903923016,0.316,0.6839999999999999
+20,8,6,percent,Robert Herjavec,3,Chris Soules,Robert Herjavec,Noah Galloway,Robert Herjavec,False,True,False,1.0,0.002361628691939066,-0.3714285714285715,0.868,0.132
+20,9,4,percent,Nastia Liukin,2,Nastia Liukin,Nastia Liukin,Noah Galloway,Noah Galloway,True,True,True,0.5,0.0010000014612065455,-0.9486832980505139,0.362,0.638
+21,2,13,percent,Victor Espinoza,3,Victor Espinoza,Victor Espinoza,Kim Zolciak-Biermann,Chaka Khan,True,True,True,1.0,0.0010000021523330072,0.1761392068154122,0.794,0.20599999999999996
+21,4,10,percent,Gary Busey,0,Paula Deen,Gary Busey,Paula Deen,Gary Busey,False,True,False,2.0,0.008473703858263681,0.4409937888198758,0.97,0.030000000000000027
+21,6,9,percent,Paula Deen,8,Paula Deen,Paula Deen,Paula Deen,Paula Deen,True,True,True,9.0,0.019169733839751568,-0.37391304347826093,0.97,0.030000000000000027
+21,7,8,percent,Hayes Grier,6,Alexa PenaVega,Hayes Grier,Alexa PenaVega,Alek Skarlatos,False,True,False,1.0,0.001000001435831649,-0.6336503867247937,0.18,0.8200000000000001
+21,8,7,percent,Andy Grammer,3,Alek Skarlatos,Andy Grammer,Andy Grammer,Andy Grammer,False,True,False,5.0,0.005155594799387209,-0.4504687313477795,0.896,0.10399999999999998
+21,9,6,percent,Alexa PenaVega,0,Carlos PenaVega,Alexa PenaVega,Carlos PenaVega,Tamar Braxton,False,True,False,1.5,0.001000001475553347,-0.7826908981308054,0.124,0.876
+21,11,4,percent,Carlos PenaVega,0,Carlos PenaVega,Carlos PenaVega,Bindi Irwin,Alek Skarlatos,True,True,True,1.0,0.0010000029861282345,-0.7745966692414834,0.67,0.32999999999999996
+22,2,12,percent,Geraldo Rivera,7,Mischa Barton,Geraldo Rivera,Mischa Barton,Geraldo Rivera,False,True,False,3.0,0.008474035931902713,0.5108997468595301,0.936,0.06399999999999995
+22,3,11,percent,Mischa Barton,0,Doug Flutie,Mischa Barton,Von Miller,Mischa Barton,False,True,False,0.0,0.008437308194863935,0.4848498020833964,0.964,0.03600000000000003
+22,4,10,percent,Marla Maples,9,Jodie Sweetin,Marla Maples,Jodie Sweetin,Doug Flutie,False,True,False,0.0,0.0010000003507442123,0.43209876543209874,0.744,0.256
+22,6,9,percent,Doug Flutie,2,Doug Flutie,Doug Flutie,Doug Flutie,Doug Flutie,True,True,True,9.0,0.01321694450481431,-0.37391304347826093,0.91,0.08999999999999997
+22,7,8,percent,Kim Fields,0,Kim Fields,Kim Fields,Kim Fields,Jodie Sweetin,True,True,True,4.5,0.0010000026052075506,-0.456025132744326,0.832,0.16800000000000004
+22,8,6,percent,Jodie Sweetin,0,Jodie Sweetin,Jodie Sweetin,Wanya Morris,Wanya Morris,True,True,True,0.5,0.001000000618112895,-0.9856107606091624,0.168,0.832
+22,9,5,percent,Antonio Brown,0,Ginger Zee,Antonio Brown,Antonio Brown,Antonio Brown,False,True,False,1.0,0.0034842563285436,0.7,0.742,0.258
+23,2,13,percent,Jake T. Austin,0,Jake T. Austin,Jake T. Austin,Rick Perry,Rick Perry,True,True,True,10.0,0.0010000007032871239,-0.6954163455022236,0.898,0.10199999999999998
+23,3,12,percent,Rick Perry,6,Rick Perry,Rick Perry,Rick Perry,Rick Perry,True,True,True,4.5,0.0010000013717977874,0.5704108883921656,0.944,0.05600000000000005
+23,4,11,percent,Babyface,7,Babyface,Babyface,Babyface,Babyface,True,True,True,2.0,0.011494449879195734,-0.9720930232558141,0.926,0.07399999999999995
+23,6,9,percent,Amber Rose,5,Amber Rose,Amber Rose,Amber Rose,Amber Rose,True,True,True,8.5,0.00655744710735684,-0.38818910956966796,0.972,0.028000000000000025
+23,7,8,percent,Maureen McCormick,0,Maureen McCormick,Maureen McCormick,Ryan Lochte,Marilu Henner,True,True,True,3.0,0.0010000018371239539,-0.35010942629624875,0.748,0.252
+23,8,7,percent,Ryan Lochte,1,Ryan Lochte,Ryan Lochte,Ryan Lochte,Marilu Henner,True,True,True,3.0,0.0010000010937512571,-0.3090909090909091,0.594,0.406
+23,9,6,percent,Marilu Henner,0,Marilu Henner,Marilu Henner,Marilu Henner,Marilu Henner,True,True,True,2.5,0.0010000034456600915,0.2686866453119394,0.806,0.19399999999999995
+23,10,5,percent,Terra Jole,4,James Hinchcliffe,Terra Jole,James Hinchcliffe,Calvin Johnson Jr.,False,True,False,0.5,0.001000008563559307,-0.8207826816681234,0.208,0.792
+23,11,4,percent,Jana Kramer,3,Calvin Johnson Jr.,Jana Kramer,Jana Kramer,Jana Kramer,False,True,False,0.0,0.018616944622715015,-1.0,0.79,0.20999999999999996
+24,2,12,percent,Chris Kattan,8,Chris Kattan,Chris Kattan,Chris Kattan,Chris Kattan,True,True,True,3.0,0.0010000013423979714,0.5678607644296889,0.972,0.028000000000000025
+24,3,11,percent,Charo,0,Charo,Charo,Charo,Charo,True,True,True,9.5,0.0010000018878713601,-0.5833583406569182,0.91,0.08999999999999997
+24,4,10,percent,Mr. T,0,David Ross,Mr. T,Erika Jayne,Mr. T,False,True,False,2.5,0.006134618304105749,0.15290591376647714,0.9,0.09999999999999998
+24,5,9,percent,Erika Jayne,6,Erika Jayne,Erika Jayne,Rashad Jennings,David Ross,True,True,True,1.0,0.0010000005830389236,-0.0840365806816018,0.604,0.396
+24,6,8,percent,Heather Morris,0,Heather Morris,Heather Morris,Nick Viall,Nick Viall,True,True,True,0.0,0.001000001261437844,-1.0,0.152,0.848
+24,7,7,percent,Nancy Kerrigan,0,Nancy Kerrigan,Nancy Kerrigan,Nick Viall,Bonner Bolton,True,True,True,0.0,0.0010000035697485532,-0.34545454545454546,0.526,0.474
+24,8,5,percent,Bonner Bolton,0,Bonner Bolton,Bonner Bolton,Rashad Jennings,Bonner Bolton,True,True,True,0.0,0.020057087335568435,-0.9999999999999999,0.884,0.11599999999999999
+24,9,4,percent,Simone Biles,0,Simone Biles,Simone Biles,Normani,David Ross,True,True,True,0.0,0.00100000196221961,-1.0,0.316,0.6839999999999999
+25,2,13,percent,Barbara Corcoran,7,Derek Fisher,Barbara Corcoran,Derek Fisher,Barbara Corcoran,False,True,False,0.0,0.007311642921883799,0.565459610027855,0.944,0.05600000000000005
+25,4,11,percent,Derek Fisher,3,Derek Fisher,Derek Fisher,Nick Lachey,Nick Lachey,True,True,True,9.0,0.0010000005143404322,-0.4938814826645345,0.8,0.19999999999999996
+25,5,10,percent,Sasha Pieterse,0,Sasha Pieterse,Sasha Pieterse,Sasha Pieterse,Nick Lachey,True,True,True,3.5,0.0010000004571784349,0.055384877562171135,0.864,0.136
+25,6,9,percent,Nick Lachey,6,Drew Scott,Nick Lachey,Drew Scott,Nick Lachey,False,True,False,3.0,0.01307014203460144,0.38818910956966796,0.956,0.04400000000000004
+25,7,8,percent,Nikki Bella,2,Terrell Owens,Nikki Bella,Terrell Owens,Nikki Bella,False,True,False,2.0,0.0023181022982178834,0.31515730321758084,0.878,0.122
+25,8,6,percent,Terrell Owens,2,Terrell Owens,Terrell Owens,Drew Scott,Drew Scott,True,True,True,3.0,0.0010000005577056603,-0.6571428571428573,0.784,0.21599999999999997
+25,9,5,percent,Victoria Arlen,2,Victoria Arlen,Victoria Arlen,Drew Scott,Drew Scott,True,True,True,2.0,0.0010000030615059385,-0.7,0.54,0.45999999999999996
+25,10,4,percent,Drew Scott,3,Drew Scott,Drew Scott,Drew Scott,Drew Scott,True,True,True,1.0,0.008881714800784368,-0.7777777777777779,0.882,0.118
+26,2,8,percent,Kareem Abdul-Jabbar,0,Mirai Nagasu,Kareem Abdul-Jabbar,Josh Norman,Kareem Abdul-Jabbar,False,True,False,0.5,0.0074766234492748,-0.9938837346736189,0.906,0.09399999999999997
+26,3,6,percent,Jennie Finch Daigle,0,Chris Mazdzer,Jennie Finch Daigle,Mirai Nagasu,Jennie Finch Daigle,False,True,False,0.0,0.018957320098515473,-0.05882352941176471,0.908,0.09199999999999997
+27,2,12,percent,Danelle Umstead,5,Danelle Umstead,Danelle Umstead,Danelle Umstead,Joe Amabile,True,True,True,2.0,0.0010000011663248987,0.5319148936170213,0.938,0.062000000000000055
+27,3,11,percent,Nancy McKeon,2,Nancy McKeon,Nancy McKeon,Nancy McKeon,Joe Amabile,True,True,True,3.0,0.0010000000428427858,0.060465116279069774,0.926,0.07399999999999995
+27,4,10,percent,Tinashe,7,Juan Pablo Di Pace,Tinashe,Evanna Lynch,Joe Amabile,False,True,False,0.0,0.0010000000819175014,-0.721715912977772,0.03,0.97
+27,6,9,percent,Mary Lou Retton,4,Mary Lou Retton,Mary Lou Retton,Mary Lou Retton,John Schneider,True,True,True,2.0,0.0010000012553312843,-0.4219446843148565,0.57,0.43000000000000005
+27,7,8,percent,John Schneider,2,John Schneider,John Schneider,Joe Amabile,Joe Amabile,True,True,True,4.0,0.0010000045333451169,-0.7590361445783131,0.564,0.43600000000000005
+27,8,6,percent,Juan Pablo Di Pace,0,Juan Pablo Di Pace,Juan Pablo Di Pace,Joe Amabile,Bobby Bones,True,True,True,0.0,0.0010000004968936382,-1.0,0.198,0.802
+28,2,12,rank,Mary Wilson,7,Mary Wilson,Mary Wilson,Mary Wilson,Mary Wilson,True,True,True,6.5,0.027179188980764893,-0.144884466011745,1.0,0.0
+28,4,10,rank,Lamar Odom,3,Lamar Odom,Lamar Odom,Lamar Odom,Lamar Odom,True,True,True,7.5,0.04493054487383484,0.08155320246773276,1.0,0.0
+28,7,8,rank,Karamo Brown,6,Karamo Brown,Karamo Brown,Sean Spicer,Karamo Brown,True,True,True,4.0,0.024202129614887352,-0.4879500364742666,1.0,0.0
+28,8,7,rank,Kate Flannery,0,Kate Flannery,Kate Flannery,Kate Flannery,Kate Flannery,True,True,True,4.0,0.028405516837853695,-0.6071428571428572,1.0,0.0
+28,9,6,rank,Sean Spicer,2,Sean Spicer,Sean Spicer,Sean Spicer,Sean Spicer,True,True,True,6.0,0.11904863926757908,-0.14285714285714288,1.0,0.0
+28,10,5,rank,James Van Der Beek,0,James Van Der Beek,James Van Der Beek,James Van Der Beek,James Van Der Beek,True,True,True,4.5,0.09831434478395312,0.05129891760425771,1.0,0.0
+29,2,15,rank,Charles Oakley,5,Charles Oakley,Charles Oakley,Charles Oakley,Charles Oakley,True,True,True,10.0,0.02636794702011902,-0.46979073937955296,1.0,0.0
+29,3,14,rank,Carole Baskin,11,Carole Baskin,Carole Baskin,Carole Baskin,Carole Baskin,True,True,True,11.0,0.040489810619257806,-0.21484587955630752,1.0,0.0
+29,4,13,rank,Anne Heche,0,Anne Heche,Anne Heche,Anne Heche,Anne Heche,True,True,True,7.5,0.016864973609484663,-0.39350273803927316,1.0,0.0
+29,5,12,rank,Jesse Metcalfe,0,Jesse Metcalfe,Jesse Metcalfe,Jesse Metcalfe,Jesse Metcalfe,True,True,True,7.5,0.03287115261979717,-0.27658499293605965,1.0,0.0
+29,6,11,rank,Veron Davis,3,Veron Davis,Veron Davis,Veron Davis,Veron Davis,True,True,True,7.5,0.028773948744206107,-0.40572780287003823,1.0,0.0
+29,7,10,rank,Monica Aldama,8,Monica Aldama,Monica Aldama,Monica Aldama,Monica Aldama,True,True,True,8.0,0.028870152278201583,-0.192606037041233,1.0,0.0
+29,8,8,rank,Chrishell Stause,0,Chrishell Stause,Chrishell Stause,Chrishell Stause,Chrishell Stause,True,True,True,3.5,0.05269911478158559,-0.614502433207647,1.0,0.0
+29,9,7,rank,AJ McLean,4,AJ McLean,AJ McLean,Nelly,AJ McLean,True,True,True,5.0,0.03231078332102058,-0.38188130791298674,1.0,0.0
+29,10,6,rank,Skai Jackson,0,Skai Jackson,Skai Jackson,Nelly,Skai Jackson,True,True,True,3.5,0.03678691755707955,-0.44136741475237473,1.0,0.0
+30,2,15,rank,Martin Kove,0,Martin Kove,Martin Kove,Martin Kove,Martin Kove,True,True,True,11.0,0.05009050167444515,-0.29137444692865805,1.0,0.0
+30,3,14,rank,Christine Chiu,11,Christine Chiu,Christine Chiu,Suni Lee,Christine Chiu,True,True,True,3.0,0.01744654336857135,-0.5651146072740638,0.998,0.0020000000000000018
+30,4,13,rank,Brian Austin Green,0,Brian Austin Green,Brian Austin Green,Brian Austin Green,Brian Austin Green,True,True,True,9.0,0.022360696105740818,-0.4193139346887673,1.0,0.0
+30,5,11,rank,Melanie C,5,Melanie C,Melanie C,Iman Shumpert,Melanie C,True,True,True,1.0,0.0009330765121253193,-0.5257203720113371,0.456,0.544
+30,6,10,rank,Kenya Moore,8,Kenya Moore,Kenya Moore,Kenya Moore,Kenya Moore,True,True,True,7.5,0.017225764221396753,-0.20438236689776879,1.0,0.0
+30,7,9,rank,"Mike ""The Miz"" Mizanin",1,"Mike ""The Miz"" Mizanin","Mike ""The Miz"" Mizanin","Mike ""The Miz"" Mizanin","Mike ""The Miz"" Mizanin",True,True,True,7.0,0.034883182277542515,-0.297939785765562,1.0,0.0
+30,8,8,rank,Jimmie Allen,4,Jimmie Allen,Jimmie Allen,Jimmie Allen,Jimmie Allen,True,True,True,7.0,0.05600369293867724,-0.26837252006084666,1.0,0.0
+30,9,6,rank,Melora Hardin,0,Melora Hardin,Melora Hardin,Cody Rigsby,Melora Hardin,True,True,True,4.0,0.05884508943192318,-0.4058397249567139,1.0,0.0
+31,2,15,rank,Teresa Giudice,11,Teresa Giudice,Teresa Giudice,Teresa Giudice,Teresa Giudice,True,True,True,8.0,0.01644455410419203,-0.06300836806695584,1.0,0.0
+31,3,14,rank,Cheryl Ladd,0,Cheryl Ladd,Cheryl Ladd,Vinny Guadagnino,Cheryl Ladd,True,True,True,7.0,0.019486332169070628,0.2718273530940363,1.0,0.0
+31,4,13,rank,Sam Champion,5,Sam Champion,Sam Champion,Sam Champion,Sam Champion,True,True,True,9.5,0.022094592767485988,-0.4166923892130175,1.0,0.0
+31,5,12,rank,Joseph Baena,1,Joseph Baena,Joseph Baena,Joseph Baena,Joseph Baena,True,True,True,7.0,0.015477329802813772,-0.5859685193617907,1.0,0.0
+31,6,10,rank,Jessie James Decker,3,Jessie James Decker,Jessie James Decker,Jessie James Decker,Jessie James Decker,True,True,True,6.5,0.03359666232236504,-0.2572062539366956,1.0,0.0
+31,7,9,rank,Jordin Sparks,3,Jordin Sparks,Jordin Sparks,Jordin Sparks,Jordin Sparks,True,True,True,5.5,0.028574751204101356,-0.2605134001129656,1.0,0.0
+31,8,8,rank,Heidi D'Amelio,3,Heidi D'Amelio,Heidi D'Amelio,Heidi D'Amelio,Heidi D'Amelio,True,True,True,5.5,0.04816258364067946,-0.19278507708475198,1.0,0.0
+31,9,6,rank,Trevor Donovan,0,Trevor Donovan,Trevor Donovan,Trevor Donovan,Trevor Donovan,True,True,True,5.5,0.08320861543269636,-0.08827348295047496,1.0,0.0
+32,2,13,rank,Jamie Lynn Spears,0,Jamie Lynn Spears,Jamie Lynn Spears,Mauricio Umansky,Jamie Lynn Spears,True,True,True,5.0,0.023420148682409853,-0.5714555046443113,1.0,0.0
+32,3,12,rank,Tyson Beckford,5,Tyson Beckford,Tyson Beckford,Tyson Beckford,Tyson Beckford,True,True,True,9.0,0.051303462277632356,-0.34798374707807467,1.0,0.0
+32,4,11,rank,Adrian Peterson,4,Adrian Peterson,Adrian Peterson,Mauricio Umansky,Adrian Peterson,True,True,True,4.0,0.01545571271435417,-0.44243859646256245,1.0,0.0
+32,5,10,rank,Mira Sorvino,0,Mira Sorvino,Mira Sorvino,Mira Sorvino,Mira Sorvino,True,True,True,5.5,0.01728692332601567,-0.43285930540565853,1.0,0.0
+32,6,9,rank,Mauricio Umansky,6,Mauricio Umansky,Mauricio Umansky,Mauricio Umansky,Mauricio Umansky,True,True,True,4.0,0.029939495710949157,-0.6833333333333333,1.0,0.0
+32,8,7,rank,Barry Williams,0,Barry Williams,Barry Williams,Harry Jowsey,Barry Williams,True,True,True,4.0,0.05338438115738883,-0.6071428571428572,1.0,0.0
+32,9,6,rank,Harry Jowsey,3,Harry Jowsey,Harry Jowsey,Harry Jowsey,Harry Jowsey,True,True,True,5.0,0.0828160512922595,-0.028571428571428574,1.0,0.0
+33,2,13,rank,Tori Spelling,0,Tori Spelling,Tori Spelling,Anna Delvey,Tori Spelling,True,True,True,3.5,0.012808166994022457,0.041786782847109585,1.0,0.0
+33,3,11,rank,Eric Roberts,0,Eric Roberts,Eric Roberts,Eric Roberts,Eric Roberts,True,True,True,7.5,0.026688968288854906,-0.10502392594476133,1.0,0.0
+33,4,9,rank,Brooks Nader,5,Brooks Nader,Brooks Nader,Jenn Tran,Brooks Nader,True,True,True,3.0,0.02615237387749375,-0.3578132236660672,1.0,0.0
+33,5,8,rank,Phaedra Parks,5,Phaedra Parks,Phaedra Parks,Phaedra Parks,Phaedra Parks,True,True,True,5.5,0.02173114738735238,-0.43239543471897574,1.0,0.0
+33,6,7,rank,Jenn Tran,5,Jenn Tran,Jenn Tran,Ilona Maher,Jenn Tran,True,True,True,1.5,0.06399848964587221,-0.6975119433036349,1.0,0.0
+33,7,6,rank,Dwight Howard ,1,Dwight Howard ,Dwight Howard ,Dwight Howard ,Dwight Howard ,True,True,True,5.0,0.03886479883961372,-0.028571428571428574,1.0,0.0
+34,2,14,rank,Corey Feldman,0,Corey Feldman,Corey Feldman,Corey Feldman,Corey Feldman,True,True,True,9.5,0.0346537942288111,-0.24303744584122208,1.0,0.0
+34,3,12,rank,Lauren Jauregui,6,Lauren Jauregui,Lauren Jauregui,Lauren Jauregui,Lauren Jauregui,True,True,True,7.5,0.021416212658752348,-0.329820415170924,1.0,0.0
+34,4,11,rank,Hilaria Baldwin,5,Hilaria Baldwin,Hilaria Baldwin,Jen Affleck,Hilaria Baldwin,True,True,True,2.0,0.006465782821357971,-0.6265867406503355,1.0,0.0
+34,6,10,rank,Scott Hoying,5,Scott Hoying,Scott Hoying,Scott Hoying,Scott Hoying,True,True,True,6.5,0.033414581324678325,-0.3580860968453741,1.0,0.0
+34,7,9,rank,Jen Affleck,6,Jen Affleck,Jen Affleck,Andy Richter,Jen Affleck,True,True,True,5.0,0.04948623421050535,-0.39330888211518983,1.0,0.0
+34,8,8,rank,Danielle Fishel,0,Danielle Fishel,Danielle Fishel,Andy Richter,Danielle Fishel,True,True,True,5.0,0.012888867915930607,-0.37126414119311024,1.0,0.0
+34,9,7,rank,Andy Richter,2,Andy Richter,Andy Richter,Andy Richter,Andy Richter,True,True,True,6.0,0.10587602361641615,-0.18531232916527532,1.0,0.0
+34,10,6,rank,Whitney Leavitt,4,Whitney Leavitt,Whitney Leavitt,Alix Earle,Whitney Leavitt,True,True,True,1.0,0.04649465044366391,-0.7944613465542746,0.644,0.356

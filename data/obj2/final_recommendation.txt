@@ -1,0 +1,85 @@
+
+======================================================================
+FINAL RECOMMENDATION: VOTING METHOD COMPARISON
+MCM Problem C 2026
+======================================================================
+
+EXECUTIVE SUMMARY
+─────────────────
+There is NO universally "best" method. The optimal choice depends on 
+the show's priorities:
+
+1. IF SKILL MATTERS MOST:
+   → Recommend: RANK_B2
+   This method best aligns outcomes with judge assessments.
+
+2. IF FAN ENGAGEMENT MATTERS MOST:
+   → Recommend: RANK_B2
+   This method gives fans the most meaningful voting power.
+
+3. IF BALANCED APPROACH:
+   → Recommend: RANK_B2
+   Best trade-off between skill recognition and fan power.
+
+4. IF AVOIDING CONTROVERSY MATTERS MOST:
+   → Recommend: RANK_B2
+   Minimizes outcomes that differ drastically from judge rankings.
+
+
+KEY INSIGHTS
+────────────
+1. RANK METHOD:
+   • Makes it EASIER for underdogs to survive (equal weight to fan rank)
+   • More sensitive to ties and small vote differences
+   • Used in S1-2 and brought back in S28+ with judges-choose-bottom-2
+
+2. PERCENT METHOD:
+   • Proportional representation - big fan leads translate directly
+   • Can create "fan favorite" dominance over skill
+   • Used S3-27, including controversial Bristol Palin/Bobby Bones seasons
+
+3. RANK + JUDGES BOTTOM 2 (S28+):
+   • Hybrid approach balancing fan power with judge override
+   • Judges can "save" skilled dancers from pure popularity voting
+   • Represents show's CURRENT solution to the controversy problem
+
+
+UNCERTAINTY ACKNOWLEDGMENT
+──────────────────────────
+• Our fan vote estimates have inherent uncertainty (±20-30%)
+• Bootstrap CIs show recommendations are statistically robust but not certain
+• Historical seasons used different voting rules we cannot fully reconstruct
+• "Controversial" is subjective - some viewers LIKE underdogs winning
+
+
+WHY THE SHOW CHANGED METHODS
+────────────────────────────
+The show's own evolution tells the story:
+• S1-2: Started with RANK (simple, intuitive)
+• S3-27: Switched to PERCENT (more "democratic")
+• S28+: Returned to RANK + added B2 rule
+
+The S28 change was likely a response to controversial outcomes like:
+• Bristol Palin (S11): 3rd place despite consistently last in judges
+• Bobby Bones (S27): WINNER despite low judge scores
+
+The current RANK+B2 system is the show's attempt at a "best of both worlds"
+solution: fans still have meaningful power, but judges get a final say
+on close calls.
+
+
+OUR PREFERENCE
+──────────────
+If forced to choose ONE method for ALL seasons:
+
+→ RANK + JUDGES BOTTOM 2 (the current S28+ method)
+
+Rationale:
+• Preserves fan engagement (fans still determine most eliminations)
+• Adds skill correction mechanism (judges can save skilled dancers)
+• Reduces but doesn't eliminate "underdog" narratives
+• Already validated by 7 seasons of use (S28-34)
+
+Confidence: MODERATE (70%)
+The data supports this choice, but the 95% CIs overlap for many metrics.
+
